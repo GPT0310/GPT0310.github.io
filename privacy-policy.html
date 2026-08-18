@@ -320,9 +320,9 @@
       <span class="sep">/</span>
       <span>LiveMaker</span>
       <span class="spacer"></span>
-      <span class="tabular">EFETIVA 2026-08-13</span>
+      <span class="tabular">EFETIVA 2026-08-18</span>
       <span class="sep">·</span>
-      <span class="tabular">v1.0</span>
+      <span class="tabular">v1.1</span>
     </div>
 
     <div class="hero">
@@ -334,11 +334,11 @@
     <div class="facts">
       <div class="fact">
         <p class="k">Coletamos</p>
-        <p class="v">Localização aproximada &amp; ID de publicidade</p>
+        <p class="v">Localização aproximada, ID de publicidade e endereço IP (ao carregar a galeria)</p>
       </div>
       <div class="fact">
         <p class="k">Compartilhado com</p>
-        <p class="v">Google AdMob (anúncios)</p>
+        <p class="v">Google AdMob (anúncios) e Supabase (galeria de wallpapers)</p>
       </div>
       <div class="fact">
         <p class="k">Conta necessária</p>
@@ -369,11 +369,12 @@
           <h2>Dados que coletamos</h2>
         </div>
         <div class="clause-body">
-          <p>O LiveMaker foi desenhado para funcionar majoritariamente offline. Os únicos dados coletados são:</p>
+          <p>O LiveMaker foi desenhado para funcionar majoritariamente offline. Os dados coletados são:</p>
           <ul>
             <li><strong>Localização aproximada ou precisa</strong> — usada apenas se você ativar a automação de cena por clima, para consultar as condições climáticas da sua região e ajustar o papel de parede automaticamente.</li>
             <li><strong>Identificador de publicidade (Advertising ID)</strong> — coletado pelo SDK do Google AdMob para exibir e medir os anúncios em banner do editor.</li>
             <li><strong>Dados técnicos de diagnóstico de anúncios</strong> — coletados pelo Google (impressões, cliques, informações do dispositivo) conforme a própria política do Google, descrita na seção 3.</li>
+            <li><strong>Endereço IP</strong> — ao abrir a Galeria de Wallpapers, o app consulta um servidor (Supabase) para baixar a lista de wallpapers disponíveis, as miniaturas e, se você escolher aplicar um, o arquivo completo do wallpaper. Como qualquer requisição de rede, isso transmite seu endereço IP ao provedor de hospedagem — não usamos esse dado pra identificar ou rastrear você, ele existe só como parte de como a internet funciona (entrega do conteúdo).</li>
           </ul>
           <p>Não pedimos cadastro, e-mail, nome ou qualquer identificação pessoal para usar o app. Se você nos contata voluntariamente por e-mail (seção 9), tratamos apenas o endereço usado nessa troca, só para responder.</p>
         </div>
@@ -396,7 +397,7 @@
       <section class="clause" id="terceiros">
         <div class="clause-head">
           <span class="clause-num">03</span>
-          <h2>Terceiros e anúncios</h2>
+          <h2>Terceiros</h2>
         </div>
         <div class="clause-body">
           <p>O LiveMaker usa o <strong>Google Mobile Ads (AdMob)</strong> para exibir um banner de anúncio no editor. O Google pode coletar identificadores de publicidade, dados de interação com o anúncio e informações do dispositivo, conforme:</p>
@@ -405,7 +406,11 @@
             <li><a href="https://policies.google.com/technologies/partner-sites" target="_blank" rel="noopener">Como o Google usa dados de apps parceiros</a></li>
           </ul>
           <p>Você pode limitar a personalização de anúncios nas configurações de privacidade do seu dispositivo Android (<em>Configurações → Google → Anúncios → Excluir personalização de anúncios</em>).</p>
-          <div class="note">Não trabalhamos com nenhum outro SDK de terceiros além do Google Mobile Ads. Nenhum dado de localização é enviado a redes de anúncios.</div>
+          <p>O LiveMaker também usa o <strong>Supabase</strong> para hospedar o catálogo da Galeria de Wallpapers (lista de wallpapers disponíveis, miniaturas e os arquivos completos dos wallpapers). Nenhuma conta, e-mail ou identificação pessoal é enviada nessas requisições — é uma consulta anônima de conteúdo público, igual a carregar uma imagem de um site. Mais informações:</p>
+          <ul>
+            <li><a href="https://supabase.com/privacy" target="_blank" rel="noopener">Política de Privacidade do Supabase</a></li>
+          </ul>
+          <div class="note">Não trabalhamos com nenhum outro SDK ou serviço de terceiros além do Google Mobile Ads (anúncios) e do Supabase (galeria de wallpapers). Nenhum dado de localização é enviado a redes de anúncios ou ao Supabase.</div>
         </div>
       </section>
 
@@ -449,8 +454,9 @@
           <h2>Armazenamento e segurança</h2>
         </div>
         <div class="clause-body">
-          <p>Os modelos 3D, imagens, vídeos e configurações que você importa ou cria ficam salvos <strong>localmente no seu dispositivo</strong> — não existe conta na nuvem nem servidor nosso guardando o conteúdo das suas cenas. Ao desinstalar o app, esses dados são apagados junto com ele.</p>
-          <p>A comunicação de rede do app é feita por HTTPS (tráfego não criptografado é bloqueado por padrão em builds de produção).</p>
+          <p>Os modelos 3D, imagens, vídeos e configurações que você importa ou cria ficam salvos <strong>localmente no seu dispositivo</strong> — não existe conta na nuvem nem servidor nosso guardando o conteúdo das suas cenas próprias. Ao desinstalar o app, esses dados são apagados junto com ele.</p>
+          <p>A única exceção é o catálogo da Galeria de Wallpapers (modelos prontos oferecidos por nós, não o conteúdo que você cria), que é hospedado no Supabase e baixado sob demanda — ver seção 3.</p>
+          <p>Toda a comunicação de rede do app é feita por HTTPS (tráfego não criptografado é bloqueado por padrão em builds de produção).</p>
         </div>
       </section>
 
