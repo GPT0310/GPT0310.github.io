@@ -320,9 +320,9 @@
       <span class="sep">/</span>
       <span>LiveMaker</span>
       <span class="spacer"></span>
-      <span class="tabular">EFETIVA 2026-08-18</span>
+      <span class="tabular">EFETIVA 2026-08-20</span>
       <span class="sep">·</span>
-      <span class="tabular">v1.1</span>
+      <span class="tabular">v1.2</span>
     </div>
 
     <div class="hero">
@@ -347,6 +347,10 @@
       <div class="fact">
         <p class="k">Venda de dados</p>
         <p class="v ok">Nunca</p>
+      </div>
+      <div class="fact">
+        <p class="k">Áudio do aparelho (recurso opcional)</p>
+        <p class="v ok">Processado só no aparelho, nunca gravado ou enviado</p>
       </div>
     </div>
 
@@ -375,8 +379,9 @@
             <li><strong>Identificador de publicidade (Advertising ID)</strong> — coletado pelo SDK do Google AdMob para exibir e medir os anúncios em banner do editor.</li>
             <li><strong>Dados técnicos de diagnóstico de anúncios</strong> — coletados pelo Google (impressões, cliques, informações do dispositivo) conforme a própria política do Google, descrita na seção 3.</li>
             <li><strong>Endereço IP</strong> — ao abrir a Galeria de Wallpapers, o app consulta um servidor (Supabase) para baixar a lista de wallpapers disponíveis, as miniaturas e, se você escolher aplicar um, o arquivo completo do wallpaper. Como qualquer requisição de rede, isso transmite seu endereço IP ao provedor de hospedagem — não usamos esse dado pra identificar ou rastrear você, ele existe só como parte de como a internet funciona (entrega do conteúdo).</li>
+            <li><strong>Nível do áudio em reprodução no aparelho</strong> — só se você ativar manualmente a automação "Responsivo a áudio" (desligada por padrão). Veja a seção 5 para os detalhes técnicos e as garantias sobre esse recurso.</li>
           </ul>
-          <p>Não pedimos cadastro, e-mail, nome ou qualquer identificação pessoal para usar o app. Se você nos contata voluntariamente por e-mail (seção 9), tratamos apenas o endereço usado nessa troca, só para responder.</p>
+          <p>Não pedimos cadastro, e-mail, nome ou qualquer identificação pessoal para usar o app. Se você nos contata voluntariamente por e-mail (seção 10), tratamos apenas o endereço usado nessa troca, só para responder.</p>
         </div>
       </section>
 
@@ -389,6 +394,7 @@
           <ul>
             <li><strong>Localização</strong> — exclusivamente para buscar o clima atual da sua região e aplicar a cena/skybox correspondente, quando essa automação está ativada nas configurações. Nunca é enviada para nós, associada a você ou usada para publicidade.</li>
             <li><strong>ID de publicidade</strong> — exibir anúncios relevantes e medir seu desempenho, através do Google AdMob.</li>
+            <li><strong>Nível do áudio em reprodução</strong> — exclusivamente para fazer o papel de parede reagir visualmente (opacidade, cor, zoom da câmera etc) ao que está tocando no aparelho, quando você ativa esse recurso. Nunca é gravado, salvo ou enviado a lugar nenhum.</li>
           </ul>
           <p>Não usamos seus dados para perfis de comportamento próprios, não os vendemos e não os compartilhamos com ninguém além do necessário para exibir anúncios (seção 3).</p>
         </div>
@@ -441,16 +447,49 @@
                   <td>Só usadas pela automação de clima, e só se você ativá-la.</td>
                   <td>Não</td>
                 </tr>
+                <tr>
+                  <td class="perm-name">RECORD_AUDIO</td>
+                  <td>Só usada pela automação "Responsivo a áudio", e só se você ativá-la. Ver seção 5.</td>
+                  <td>Não</td>
+                </tr>
+                <tr>
+                  <td class="perm-name">FOREGROUND_SERVICE<br />FOREGROUND_SERVICE_MEDIA_PROJECTION</td>
+                  <td>Mantêm a leitura do nível de áudio funcionando enquanto o papel de parede está ativo, com uma notificação fixa visível o tempo todo. Só usadas se "Responsivo a áudio" estiver ativado.</td>
+                  <td>Não</td>
+                </tr>
+                <tr>
+                  <td class="perm-name">POST_NOTIFICATIONS</td>
+                  <td>Mostrar a notificação fixa obrigatória enquanto "Responsivo a áudio" está ativo (exigência do Android para esse tipo de serviço).</td>
+                  <td>Não</td>
+                </tr>
               </tbody>
             </table>
           </div>
-          <p>Você pode negar ou revogar a permissão de localização a qualquer momento em <em>Configurações do Android → Apps → LiveMaker → Permissões</em>, sem perder acesso ao restante do aplicativo — apenas a automação por clima ficará indisponível.</p>
+          <p>Você pode negar ou revogar qualquer uma dessas permissões a qualquer momento em <em>Configurações do Android → Apps → LiveMaker → Permissões</em>, sem perder acesso ao restante do aplicativo — apenas a automação correspondente (clima ou áudio) ficará indisponível.</p>
+        </div>
+      </section>
+
+      <section class="clause" id="audio">
+        <div class="clause-head">
+          <span class="clause-num">05</span>
+          <h2>Responsivo a áudio</h2>
+        </div>
+        <div class="clause-body">
+          <p>O LiveMaker tem um recurso opcional chamado <strong>"Responsivo a áudio"</strong>, que faz o papel de parede reagir visualmente (opacidade, cor, giro de matiz, zoom da câmera, filtros) ao que estiver tocando no aparelho — música, vídeo, qualquer áudio. Esse recurso vem <strong>desligado por padrão</strong>: só funciona se você entrar em <em>Automação → Responsivo a áudio</em> e ativá-lo manualmente.</p>
+          <p>Por exigência técnica do Android, ler o áudio de outros apps (Spotify, YouTube etc) só é possível através da API <code>AudioPlaybackCaptureConfiguration</code>, que precisa de:</p>
+          <ul>
+            <li>Permissão <strong>RECORD_AUDIO</strong>;</li>
+            <li>Sua confirmação explícita no diálogo do próprio sistema Android ("Iniciar gravação ou transmissão?"), exibido <strong>toda vez</strong> que você ativa o recurso — não é algo concedido uma vez só;</li>
+            <li>Um serviço em primeiro plano com uma <strong>notificação fixa</strong>, visível o tempo todo enquanto o recurso está ativo, pra você sempre saber que ele está ligado.</li>
+          </ul>
+          <div class="note">O que é processado é só o <strong>nível de volume</strong> do áudio (e, em versões mais recentes, o nível separado por faixa de frequência — graves, médios, agudos, brilho). Esse número é calculado no aparelho, usado imediatamente pra animar o papel de parede e descartado — em nenhum momento o áudio em si é gravado, salvo em arquivo, associado a você ou enviado para qualquer servidor, nosso ou de terceiros.</div>
+          <p>Você pode desativar o recurso a qualquer momento pelo mesmo interruptor no app, ou revogando a permissão RECORD_AUDIO em <em>Configurações do Android → Apps → LiveMaker → Permissões</em>.</p>
         </div>
       </section>
 
       <section class="clause" id="armazenamento">
         <div class="clause-head">
-          <span class="clause-num">05</span>
+          <span class="clause-num">06</span>
           <h2>Armazenamento e segurança</h2>
         </div>
         <div class="clause-body">
@@ -462,22 +501,23 @@
 
       <section class="clause" id="direitos">
         <div class="clause-head">
-          <span class="clause-num">06</span>
+          <span class="clause-num">07</span>
           <h2>Seus direitos e controles</h2>
         </div>
         <div class="clause-body">
           <ul>
             <li>Revogar a permissão de localização a qualquer momento, sem perder o restante das funções do app.</li>
+            <li>Desativar o "Responsivo a áudio" e/ou revogar a permissão RECORD_AUDIO a qualquer momento, sem perder o restante das funções do app.</li>
             <li>Limitar ou desativar a personalização de anúncios nas configurações do Android/Google.</li>
             <li>Apagar todos os dados locais do app desinstalando-o.</li>
-            <li>Solicitar esclarecimentos sobre esta política pelo e-mail de contato (seção 9).</li>
+            <li>Solicitar esclarecimentos sobre esta política pelo e-mail de contato (seção 10).</li>
           </ul>
         </div>
       </section>
 
       <section class="clause" id="criancas">
         <div class="clause-head">
-          <span class="clause-num">07</span>
+          <span class="clause-num">08</span>
           <h2>Crianças</h2>
         </div>
         <div class="clause-body">
@@ -487,7 +527,7 @@
 
       <section class="clause" id="alteracoes">
         <div class="clause-head">
-          <span class="clause-num">08</span>
+          <span class="clause-num">09</span>
           <h2>Alterações nesta política</h2>
         </div>
         <div class="clause-body">
@@ -497,7 +537,7 @@
 
       <section class="clause" id="contato">
         <div class="clause-head">
-          <span class="clause-num">09</span>
+          <span class="clause-num">10</span>
           <h2>Contato</h2>
         </div>
         <div class="clause-body">
