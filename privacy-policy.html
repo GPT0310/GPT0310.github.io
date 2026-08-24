@@ -110,6 +110,34 @@
   .readout .spacer { flex: 1 1 auto; }
   .readout .tabular { font-variant-numeric: tabular-nums; }
 
+  .lang-toggle {
+    display: inline-flex;
+    align-items: center;
+    border: 1px solid var(--panel-border);
+    border-radius: 999px;
+    overflow: hidden;
+    background: var(--void);
+    flex: none;
+  }
+  .lang-toggle button {
+    appearance: none;
+    border: none;
+    background: transparent;
+    color: var(--ink-faint);
+    font-family: 'Plex Mono', monospace;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    padding: 5px 12px;
+    cursor: pointer;
+    transition: background 0.15s ease, color 0.15s ease;
+  }
+  .lang-toggle button:hover { color: var(--ink-soft); }
+  .lang-toggle button[aria-pressed="true"] {
+    background: var(--teal);
+    color: #04100e;
+  }
+
   .hero {
     padding: clamp(32px, 6vw, 56px) clamp(20px, 4vw, 40px) clamp(24px, 4vw, 36px);
   }
@@ -320,37 +348,41 @@
       <span class="sep">/</span>
       <span>LiveMaker</span>
       <span class="spacer"></span>
-      <span class="tabular">EFETIVA 2026-08-20</span>
+      <span class="tabular"><span data-i18n="readout-label">EFETIVA</span> 2026-08-20</span>
       <span class="sep">·</span>
       <span class="tabular">v1.2</span>
+      <span class="lang-toggle" role="group" aria-label="Language / Idioma">
+        <button type="button" id="lang-btn-pt" aria-pressed="true" onclick="setPolicyLang('pt')">PT</button>
+        <button type="button" id="lang-btn-en" aria-pressed="false" onclick="setPolicyLang('en')">EN</button>
+      </span>
     </div>
 
     <div class="hero">
-      <p class="eyebrow">Documento legal</p>
-      <h1>Política de Privacidade do LiveMaker</h1>
-      <p class="lede">Este documento explica, em linguagem direta, quais dados o aplicativo LiveMaker coleta, por que coleta, com quem compartilha e como você pode controlar isso.</p>
+      <p class="eyebrow" data-i18n="eyebrow">Documento legal</p>
+      <h1 data-i18n="h1">Política de Privacidade do LiveMaker</h1>
+      <p class="lede" data-i18n="lede">Este documento explica, em linguagem direta, quais dados o aplicativo LiveMaker coleta, por que coleta, com quem compartilha e como você pode controlar isso.</p>
     </div>
 
     <div class="facts">
       <div class="fact">
-        <p class="k">Coletamos</p>
-        <p class="v">Localização aproximada, ID de publicidade e endereço IP (ao carregar a galeria)</p>
+        <p class="k" data-i18n="fact-1-k">Coletamos</p>
+        <p class="v" data-i18n="fact-1-v">Localização aproximada, ID de publicidade e endereço IP (ao carregar a galeria)</p>
       </div>
       <div class="fact">
-        <p class="k">Compartilhado com</p>
-        <p class="v">Google AdMob (anúncios) e Supabase (galeria de wallpapers)</p>
+        <p class="k" data-i18n="fact-2-k">Compartilhado com</p>
+        <p class="v" data-i18n="fact-2-v">Google AdMob (anúncios) e Supabase (galeria de wallpapers)</p>
       </div>
       <div class="fact">
-        <p class="k">Conta necessária</p>
-        <p class="v ok">Não</p>
+        <p class="k" data-i18n="fact-3-k">Conta necessária</p>
+        <p class="v ok" data-i18n="fact-3-v">Não</p>
       </div>
       <div class="fact">
-        <p class="k">Venda de dados</p>
-        <p class="v ok">Nunca</p>
+        <p class="k" data-i18n="fact-4-k">Venda de dados</p>
+        <p class="v ok" data-i18n="fact-4-v">Nunca</p>
       </div>
       <div class="fact">
-        <p class="k">Áudio do aparelho (recurso opcional)</p>
-        <p class="v ok">Processado só no aparelho, nunca gravado ou enviado</p>
+        <p class="k" data-i18n="fact-5-k">Áudio do aparelho (recurso opcional)</p>
+        <p class="v ok" data-i18n="fact-5-v">Processado só no aparelho, nunca gravado ou enviado</p>
       </div>
     </div>
 
@@ -359,79 +391,79 @@
       <section class="clause" id="intro">
         <div class="clause-head">
           <span class="clause-num">00</span>
-          <h2>Sobre este documento</h2>
+          <h2 data-i18n="s00-h2">Sobre este documento</h2>
         </div>
         <div class="clause-body">
-          <p>O <strong>LiveMaker</strong> (pacote <code>com.stlparallax.wallpaperapp</code>) é um aplicativo Android que permite importar modelos 3D (GLB, glTF, STL, 3MF) e criar papéis de parede animados e interativos. Esta política se aplica a todas as versões do app distribuídas na Google Play Store.</p>
-          <p>Ao instalar e usar o LiveMaker, você concorda com a coleta e o uso de informações descritos abaixo. Se você não concorda, não utilize o aplicativo.</p>
+          <p data-i18n="s00-p1">O <strong>LiveMaker</strong> (pacote <code>com.stlparallax.wallpaperapp</code>) é um aplicativo Android que permite importar modelos 3D (GLB, glTF, STL, 3MF) e criar papéis de parede animados e interativos. Esta política se aplica a todas as versões do app distribuídas na Google Play Store.</p>
+          <p data-i18n="s00-p2">Ao instalar e usar o LiveMaker, você concorda com a coleta e o uso de informações descritos abaixo. Se você não concorda, não utilize o aplicativo.</p>
         </div>
       </section>
 
       <section class="clause" id="dados">
         <div class="clause-head">
           <span class="clause-num">01</span>
-          <h2>Dados que coletamos</h2>
+          <h2 data-i18n="s01-h2">Dados que coletamos</h2>
         </div>
         <div class="clause-body">
-          <p>O LiveMaker foi desenhado para funcionar majoritariamente offline. Os dados coletados são:</p>
-          <ul>
+          <p data-i18n="s01-p1">O LiveMaker foi desenhado para funcionar majoritariamente offline. Os dados coletados são:</p>
+          <ul data-i18n="s01-list">
             <li><strong>Localização aproximada ou precisa</strong> — usada apenas se você ativar a automação de cena por clima, para consultar as condições climáticas da sua região e ajustar o papel de parede automaticamente.</li>
             <li><strong>Identificador de publicidade (Advertising ID)</strong> — coletado pelo SDK do Google AdMob para exibir e medir os anúncios em banner do editor.</li>
             <li><strong>Dados técnicos de diagnóstico de anúncios</strong> — coletados pelo Google (impressões, cliques, informações do dispositivo) conforme a própria política do Google, descrita na seção 3.</li>
             <li><strong>Endereço IP</strong> — ao abrir a Galeria de Wallpapers, o app consulta um servidor (Supabase) para baixar a lista de wallpapers disponíveis, as miniaturas e, se você escolher aplicar um, o arquivo completo do wallpaper. Como qualquer requisição de rede, isso transmite seu endereço IP ao provedor de hospedagem — não usamos esse dado pra identificar ou rastrear você, ele existe só como parte de como a internet funciona (entrega do conteúdo).</li>
             <li><strong>Nível do áudio em reprodução no aparelho</strong> — só se você ativar manualmente a automação "Responsivo a áudio" (desligada por padrão). Veja a seção 5 para os detalhes técnicos e as garantias sobre esse recurso.</li>
           </ul>
-          <p>Não pedimos cadastro, e-mail, nome ou qualquer identificação pessoal para usar o app. Se você nos contata voluntariamente por e-mail (seção 10), tratamos apenas o endereço usado nessa troca, só para responder.</p>
+          <p data-i18n="s01-p2">Não pedimos cadastro, e-mail, nome ou qualquer identificação pessoal para usar o app. Se você nos contata voluntariamente por e-mail (seção 10), tratamos apenas o endereço usado nessa troca, só para responder.</p>
         </div>
       </section>
 
       <section class="clause" id="uso">
         <div class="clause-head">
           <span class="clause-num">02</span>
-          <h2>Como usamos os dados</h2>
+          <h2 data-i18n="s02-h2">Como usamos os dados</h2>
         </div>
         <div class="clause-body">
-          <ul>
+          <ul data-i18n="s02-list">
             <li><strong>Localização</strong> — exclusivamente para buscar o clima atual da sua região e aplicar a cena/skybox correspondente, quando essa automação está ativada nas configurações. Nunca é enviada para nós, associada a você ou usada para publicidade.</li>
             <li><strong>ID de publicidade</strong> — exibir anúncios relevantes e medir seu desempenho, através do Google AdMob.</li>
             <li><strong>Nível do áudio em reprodução</strong> — exclusivamente para fazer o papel de parede reagir visualmente (opacidade, cor, zoom da câmera etc) ao que está tocando no aparelho, quando você ativa esse recurso. Nunca é gravado, salvo ou enviado a lugar nenhum.</li>
           </ul>
-          <p>Não usamos seus dados para perfis de comportamento próprios, não os vendemos e não os compartilhamos com ninguém além do necessário para exibir anúncios (seção 3).</p>
+          <p data-i18n="s02-p1">Não usamos seus dados para perfis de comportamento próprios, não os vendemos e não os compartilhamos com ninguém além do necessário para exibir anúncios (seção 3).</p>
         </div>
       </section>
 
       <section class="clause" id="terceiros">
         <div class="clause-head">
           <span class="clause-num">03</span>
-          <h2>Terceiros</h2>
+          <h2 data-i18n="s03-h2">Terceiros</h2>
         </div>
         <div class="clause-body">
-          <p>O LiveMaker usa o <strong>Google Mobile Ads (AdMob)</strong> para exibir um banner de anúncio no editor. O Google pode coletar identificadores de publicidade, dados de interação com o anúncio e informações do dispositivo, conforme:</p>
-          <ul>
+          <p data-i18n="s03-p1">O LiveMaker usa o <strong>Google Mobile Ads (AdMob)</strong> para exibir um banner de anúncio no editor. O Google pode coletar identificadores de publicidade, dados de interação com o anúncio e informações do dispositivo, conforme:</p>
+          <ul data-i18n="s03-list1">
             <li><a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Política de Privacidade do Google</a></li>
             <li><a href="https://policies.google.com/technologies/partner-sites" target="_blank" rel="noopener">Como o Google usa dados de apps parceiros</a></li>
           </ul>
-          <p>Você pode limitar a personalização de anúncios nas configurações de privacidade do seu dispositivo Android (<em>Configurações → Google → Anúncios → Excluir personalização de anúncios</em>).</p>
-          <p>O LiveMaker também usa o <strong>Supabase</strong> para hospedar o catálogo da Galeria de Wallpapers (lista de wallpapers disponíveis, miniaturas e os arquivos completos dos wallpapers). Nenhuma conta, e-mail ou identificação pessoal é enviada nessas requisições — é uma consulta anônima de conteúdo público, igual a carregar uma imagem de um site. Mais informações:</p>
-          <ul>
+          <p data-i18n="s03-p2">Você pode limitar a personalização de anúncios nas configurações de privacidade do seu dispositivo Android (<em>Configurações → Google → Anúncios → Excluir personalização de anúncios</em>).</p>
+          <p data-i18n="s03-p3">O LiveMaker também usa o <strong>Supabase</strong> para hospedar o catálogo da Galeria de Wallpapers (lista de wallpapers disponíveis, miniaturas e os arquivos completos dos wallpapers). Nenhuma conta, e-mail ou identificação pessoal é enviada nessas requisições — é uma consulta anônima de conteúdo público, igual a carregar uma imagem de um site. Mais informações:</p>
+          <ul data-i18n="s03-list2">
             <li><a href="https://supabase.com/privacy" target="_blank" rel="noopener">Política de Privacidade do Supabase</a></li>
           </ul>
-          <div class="note">Não trabalhamos com nenhum outro SDK ou serviço de terceiros além do Google Mobile Ads (anúncios) e do Supabase (galeria de wallpapers). Nenhum dado de localização é enviado a redes de anúncios ou ao Supabase.</div>
+          <div class="note" data-i18n="s03-note">Não trabalhamos com nenhum outro SDK ou serviço de terceiros além do Google Mobile Ads (anúncios) e do Supabase (galeria de wallpapers). Nenhum dado de localização é enviado a redes de anúncios ou ao Supabase.</div>
         </div>
       </section>
 
       <section class="clause" id="permissoes">
         <div class="clause-head">
           <span class="clause-num">04</span>
-          <h2>Permissões do aplicativo</h2>
+          <h2 data-i18n="s04-h2">Permissões do aplicativo</h2>
         </div>
         <div class="clause-body">
           <div class="table-scroll">
             <table class="permit-table">
-              <thead>
+              <thead data-i18n="s04-thead">
                 <tr><th>Permissão</th><th>Motivo</th><th>Obrigatória</th></tr>
               </thead>
-              <tbody>
+              <tbody data-i18n="s04-tbody">
                 <tr>
                   <td class="perm-name">SET_WALLPAPER</td>
                   <td>Aplicar a cena criada como papel de parede animado.</td>
@@ -465,47 +497,47 @@
               </tbody>
             </table>
           </div>
-          <p>Você pode negar ou revogar qualquer uma dessas permissões a qualquer momento em <em>Configurações do Android → Apps → LiveMaker → Permissões</em>, sem perder acesso ao restante do aplicativo — apenas a automação correspondente (clima ou áudio) ficará indisponível.</p>
+          <p data-i18n="s04-p1">Você pode negar ou revogar qualquer uma dessas permissões a qualquer momento em <em>Configurações do Android → Apps → LiveMaker → Permissões</em>, sem perder acesso ao restante do aplicativo — apenas a automação correspondente (clima ou áudio) ficará indisponível.</p>
         </div>
       </section>
 
       <section class="clause" id="audio">
         <div class="clause-head">
           <span class="clause-num">05</span>
-          <h2>Responsivo a áudio</h2>
+          <h2 data-i18n="s05-h2">Responsivo a áudio</h2>
         </div>
         <div class="clause-body">
-          <p>O LiveMaker tem um recurso opcional chamado <strong>"Responsivo a áudio"</strong>, que faz o papel de parede reagir visualmente (opacidade, cor, giro de matiz, zoom da câmera, filtros) ao que estiver tocando no aparelho — música, vídeo, qualquer áudio. Esse recurso vem <strong>desligado por padrão</strong>: só funciona se você entrar em <em>Automação → Responsivo a áudio</em> e ativá-lo manualmente.</p>
-          <p>Por exigência técnica do Android, ler o áudio de outros apps (Spotify, YouTube etc) só é possível através da API <code>AudioPlaybackCaptureConfiguration</code>, que precisa de:</p>
-          <ul>
+          <p data-i18n="s05-p1">O LiveMaker tem um recurso opcional chamado <strong>"Responsivo a áudio"</strong>, que faz o papel de parede reagir visualmente (opacidade, cor, giro de matiz, zoom da câmera, filtros) ao que estiver tocando no aparelho — música, vídeo, qualquer áudio. Esse recurso vem <strong>desligado por padrão</strong>: só funciona se você entrar em <em>Automação → Responsivo a áudio</em> e ativá-lo manualmente.</p>
+          <p data-i18n="s05-p2">Por exigência técnica do Android, ler o áudio de outros apps (Spotify, YouTube etc) só é possível através da API <code>AudioPlaybackCaptureConfiguration</code>, que precisa de:</p>
+          <ul data-i18n="s05-list">
             <li>Permissão <strong>RECORD_AUDIO</strong>;</li>
             <li>Sua confirmação explícita no diálogo do próprio sistema Android ("Iniciar gravação ou transmissão?"), exibido <strong>toda vez</strong> que você ativa o recurso — não é algo concedido uma vez só;</li>
             <li>Um serviço em primeiro plano com uma <strong>notificação fixa</strong>, visível o tempo todo enquanto o recurso está ativo, pra você sempre saber que ele está ligado.</li>
           </ul>
-          <div class="note">O que é processado é só o <strong>nível de volume</strong> do áudio (e, em versões mais recentes, o nível separado por faixa de frequência — graves, médios, agudos, brilho). Esse número é calculado no aparelho, usado imediatamente pra animar o papel de parede e descartado — em nenhum momento o áudio em si é gravado, salvo em arquivo, associado a você ou enviado para qualquer servidor, nosso ou de terceiros.</div>
-          <p>Você pode desativar o recurso a qualquer momento pelo mesmo interruptor no app, ou revogando a permissão RECORD_AUDIO em <em>Configurações do Android → Apps → LiveMaker → Permissões</em>.</p>
+          <div class="note" data-i18n="s05-note">O que é processado é só o <strong>nível de volume</strong> do áudio (e, em versões mais recentes, o nível separado por faixa de frequência — graves, médios, agudos, brilho). Esse número é calculado no aparelho, usado imediatamente pra animar o papel de parede e descartado — em nenhum momento o áudio em si é gravado, salvo em arquivo, associado a você ou enviado para qualquer servidor, nosso ou de terceiros.</div>
+          <p data-i18n="s05-p3">Você pode desativar o recurso a qualquer momento pelo mesmo interruptor no app, ou revogando a permissão RECORD_AUDIO em <em>Configurações do Android → Apps → LiveMaker → Permissões</em>.</p>
         </div>
       </section>
 
       <section class="clause" id="armazenamento">
         <div class="clause-head">
           <span class="clause-num">06</span>
-          <h2>Armazenamento e segurança</h2>
+          <h2 data-i18n="s06-h2">Armazenamento e segurança</h2>
         </div>
         <div class="clause-body">
-          <p>Os modelos 3D, imagens, vídeos e configurações que você importa ou cria ficam salvos <strong>localmente no seu dispositivo</strong> — não existe conta na nuvem nem servidor nosso guardando o conteúdo das suas cenas próprias. Ao desinstalar o app, esses dados são apagados junto com ele.</p>
-          <p>A única exceção é o catálogo da Galeria de Wallpapers (modelos prontos oferecidos por nós, não o conteúdo que você cria), que é hospedado no Supabase e baixado sob demanda — ver seção 3.</p>
-          <p>Toda a comunicação de rede do app é feita por HTTPS (tráfego não criptografado é bloqueado por padrão em builds de produção).</p>
+          <p data-i18n="s06-p1">Os modelos 3D, imagens, vídeos e configurações que você importa ou cria ficam salvos <strong>localmente no seu dispositivo</strong> — não existe conta na nuvem nem servidor nosso guardando o conteúdo das suas cenas próprias. Ao desinstalar o app, esses dados são apagados junto com ele.</p>
+          <p data-i18n="s06-p2">A única exceção é o catálogo da Galeria de Wallpapers (modelos prontos oferecidos por nós, não o conteúdo que você cria), que é hospedado no Supabase e baixado sob demanda — ver seção 3.</p>
+          <p data-i18n="s06-p3">Toda a comunicação de rede do app é feita por HTTPS (tráfego não criptografado é bloqueado por padrão em builds de produção).</p>
         </div>
       </section>
 
       <section class="clause" id="direitos">
         <div class="clause-head">
           <span class="clause-num">07</span>
-          <h2>Seus direitos e controles</h2>
+          <h2 data-i18n="s07-h2">Seus direitos e controles</h2>
         </div>
         <div class="clause-body">
-          <ul>
+          <ul data-i18n="s07-list">
             <li>Revogar a permissão de localização a qualquer momento, sem perder o restante das funções do app.</li>
             <li>Desativar o "Responsivo a áudio" e/ou revogar a permissão RECORD_AUDIO a qualquer momento, sem perder o restante das funções do app.</li>
             <li>Limitar ou desativar a personalização de anúncios nas configurações do Android/Google.</li>
@@ -518,30 +550,30 @@
       <section class="clause" id="criancas">
         <div class="clause-head">
           <span class="clause-num">08</span>
-          <h2>Crianças</h2>
+          <h2 data-i18n="s08-h2">Crianças</h2>
         </div>
         <div class="clause-body">
-          <p>O LiveMaker não é direcionado a menores de 13 anos e não coleta intencionalmente dados de crianças. Se você acredita que uma criança nos forneceu dados sem o devido consentimento, entre em contato para que possamos remover essas informações.</p>
+          <p data-i18n="s08-p1">O LiveMaker não é direcionado a menores de 13 anos e não coleta intencionalmente dados de crianças. Se você acredita que uma criança nos forneceu dados sem o devido consentimento, entre em contato para que possamos remover essas informações.</p>
         </div>
       </section>
 
       <section class="clause" id="alteracoes">
         <div class="clause-head">
           <span class="clause-num">09</span>
-          <h2>Alterações nesta política</h2>
+          <h2 data-i18n="s09-h2">Alterações nesta política</h2>
         </div>
         <div class="clause-body">
-          <p>Podemos atualizar esta política quando o aplicativo mudar. A data no topo da página ("EFETIVA") sempre reflete a versão mais recente. Mudanças relevantes serão refletidas nesta mesma página.</p>
+          <p data-i18n="s09-p1">Podemos atualizar esta política quando o aplicativo mudar. A data no topo da página ("EFETIVA") sempre reflete a versão mais recente. Mudanças relevantes serão refletidas nesta mesma página.</p>
         </div>
       </section>
 
       <section class="clause" id="contato">
         <div class="clause-head">
           <span class="clause-num">10</span>
-          <h2>Contato</h2>
+          <h2 data-i18n="s10-h2">Contato</h2>
         </div>
         <div class="clause-body">
-          <p>Dúvidas, solicitações ou preocupações sobre privacidade podem ser enviadas para:</p>
+          <p data-i18n="s10-p1">Dúvidas, solicitações ou preocupações sobre privacidade podem ser enviadas para:</p>
           <p><a href="mailto:gptorturella@gmail.com">gptorturella@gmail.com</a></p>
         </div>
       </section>
@@ -554,3 +586,100 @@
     </div>
   </div>
 </div>
+
+<script>
+(function () {
+  // Português é a fonte original (o próprio HTML) — capturamos o innerHTML de cada elemento
+  // marcado antes de qualquer troca, então "voltar pro PT" nunca depende de retranscrever o
+  // texto original aqui (risco de erro de transcrição numa política legal).
+  var EN = {
+    'readout-label': 'EFFECTIVE',
+    'eyebrow': 'Legal document',
+    'h1': 'LiveMaker Privacy Policy',
+    'lede': 'This document explains, in plain language, what data the LiveMaker app collects, why it collects it, who it is shared with, and how you can control it.',
+    'fact-1-k': 'We collect',
+    'fact-1-v': 'Approximate location, advertising ID, and IP address (when loading the gallery)',
+    'fact-2-k': 'Shared with',
+    'fact-2-v': 'Google AdMob (ads) and Supabase (wallpaper gallery)',
+    'fact-3-k': 'Account required',
+    'fact-3-v': 'No',
+    'fact-4-k': 'Data sale',
+    'fact-4-v': 'Never',
+    'fact-5-k': 'Device audio (optional feature)',
+    'fact-5-v': 'Processed on-device only, never recorded or sent',
+    's00-h2': 'About this document',
+    's00-p1': '<strong>LiveMaker</strong> (package <code>com.stlparallax.wallpaperapp</code>) is an Android app that lets you import 3D models (GLB, glTF, STL, 3MF) and create animated, interactive wallpapers. This policy applies to all versions of the app distributed on the Google Play Store.',
+    's00-p2': 'By installing and using LiveMaker, you agree to the collection and use of information described below. If you do not agree, please do not use the app.',
+    's01-h2': 'Data we collect',
+    's01-p1': 'LiveMaker was designed to work mostly offline. The data we collect is:',
+    's01-list': '<li><strong>Approximate or precise location</strong> — used only if you enable weather-based scene automation, to check the weather in your region and adjust the wallpaper automatically.</li><li><strong>Advertising ID</strong> — collected by the Google AdMob SDK to display and measure the editor’s banner ads.</li><li><strong>Technical ad diagnostic data</strong> — collected by Google (impressions, clicks, device information) under Google’s own policy, described in section 3.</li><li><strong>IP address</strong> — when you open the Wallpaper Gallery, the app queries a server (Supabase) to download the list of available wallpapers, thumbnails and, if you choose to apply one, the full wallpaper file. Like any network request, this transmits your IP address to the hosting provider — we do not use this data to identify or track you, it only exists as part of how the internet works (content delivery).</li><li><strong>Audio level currently playing on the device</strong> — only if you manually enable the "Audio responsive" automation (off by default). See section 5 for the technical details and guarantees around this feature.</li>',
+    's01-p2': 'We do not ask for a sign-up, email, name, or any personal identification to use the app. If you voluntarily contact us by email (section 10), we only process the address used in that exchange, solely to reply.',
+    's02-h2': 'How we use the data',
+    's02-list': '<li><strong>Location</strong> — exclusively to look up the current weather in your region and apply the corresponding scene/skybox, when this automation is enabled in settings. It is never sent to us, associated with you, or used for advertising.</li><li><strong>Advertising ID</strong> — to display relevant ads and measure their performance, through Google AdMob.</li><li><strong>Playing audio level</strong> — exclusively to make the wallpaper react visually (opacity, color, camera zoom, etc.) to whatever is playing on the device, when you enable this feature. It is never recorded, saved, or sent anywhere.</li>',
+    's02-p1': 'We do not use your data to build behavioral profiles of our own, we do not sell it, and we do not share it with anyone beyond what is necessary to display ads (section 3).',
+    's03-h2': 'Third parties',
+    's03-p1': 'LiveMaker uses <strong>Google Mobile Ads (AdMob)</strong> to display a banner ad in the editor. Google may collect advertising identifiers, ad interaction data, and device information, under:',
+    's03-list1': '<li><a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google Privacy Policy</a></li><li><a href="https://policies.google.com/technologies/partner-sites" target="_blank" rel="noopener">How Google uses data from partner apps</a></li>',
+    's03-p2': 'You can limit ad personalization in your Android device’s privacy settings (<em>Settings → Google → Ads → Opt out of Ads Personalization</em>).',
+    's03-p3': 'LiveMaker also uses <strong>Supabase</strong> to host the Wallpaper Gallery catalog (list of available wallpapers, thumbnails, and the full wallpaper files). No account, email, or personal identification is sent in these requests — it is an anonymous query of public content, just like loading an image from a website. More information:',
+    's03-list2': '<li><a href="https://supabase.com/privacy" target="_blank" rel="noopener">Supabase Privacy Policy</a></li>',
+    's03-note': 'We do not work with any other third-party SDK or service besides Google Mobile Ads (advertising) and Supabase (wallpaper gallery). No location data is ever sent to ad networks or to Supabase.',
+    's04-h2': 'App permissions',
+    's04-thead': '<tr><th>Permission</th><th>Reason</th><th>Required</th></tr>',
+    's04-tbody': '<tr><td class="perm-name">SET_WALLPAPER</td><td>Apply the created scene as an animated wallpaper.</td><td>Yes</td></tr><tr><td class="perm-name">INTERNET</td><td>Load ads and check weather data (if enabled).</td><td>Yes</td></tr><tr><td class="perm-name">ACCESS_COARSE_LOCATION<br />ACCESS_FINE_LOCATION</td><td>Only used by weather automation, and only if you enable it.</td><td>No</td></tr><tr><td class="perm-name">RECORD_AUDIO</td><td>Only used by "Audio responsive" automation, and only if you enable it. See section 5.</td><td>No</td></tr><tr><td class="perm-name">FOREGROUND_SERVICE<br />FOREGROUND_SERVICE_MEDIA_PROJECTION</td><td>Keep audio-level reading running while the wallpaper is active, with a persistent notification visible at all times. Only used if "Audio responsive" is enabled.</td><td>No</td></tr><tr><td class="perm-name">POST_NOTIFICATIONS</td><td>Show the mandatory persistent notification while "Audio responsive" is active (an Android requirement for this type of service).</td><td>No</td></tr>',
+    's04-p1': 'You can deny or revoke any of these permissions at any time in <em>Android Settings → Apps → LiveMaker → Permissions</em>, without losing access to the rest of the app — only the corresponding automation (weather or audio) will become unavailable.',
+    's05-h2': 'Audio responsive',
+    's05-p1': 'LiveMaker has an optional feature called <strong>"Audio responsive"</strong>, which makes the wallpaper react visually (opacity, color, hue shift, camera zoom, filters) to whatever is playing on the device — music, video, any audio. This feature is <strong>off by default</strong>: it only works if you go to <em>Automation → Audio responsive</em> and enable it manually.',
+    's05-p2': 'Due to a technical requirement of Android, reading audio from other apps (Spotify, YouTube, etc.) is only possible through the <code>AudioPlaybackCaptureConfiguration</code> API, which requires:',
+    's05-list': '<li><strong>RECORD_AUDIO</strong> permission;</li><li>Your explicit confirmation in Android’s own system dialog ("Start recording or casting?"), shown <strong>every time</strong> you enable the feature — it is not granted just once;</li><li>A foreground service with a <strong>persistent notification</strong>, visible at all times while the feature is active, so you always know it is on.</li>',
+    's05-note': 'What is processed is only the audio’s <strong>volume level</strong> (and, in more recent versions, the level split by frequency band — bass, mid, treble, brilliance). This number is calculated on the device, used immediately to animate the wallpaper, and discarded — at no point is the audio itself recorded, saved to a file, associated with you, or sent to any server, ours or a third party’s.',
+    's05-p3': 'You can turn the feature off at any time using the same switch in the app, or by revoking the RECORD_AUDIO permission in <em>Android Settings → Apps → LiveMaker → Permissions</em>.',
+    's06-h2': 'Storage and security',
+    's06-p1': 'The 3D models, images, videos, and settings you import or create are stored <strong>locally on your device</strong> — there is no cloud account or server of ours storing the content of your own scenes. When you uninstall the app, this data is deleted along with it.',
+    's06-p2': 'The only exception is the Wallpaper Gallery catalog (ready-made models we offer, not content you create), which is hosted on Supabase and downloaded on demand — see section 3.',
+    's06-p3': 'All of the app’s network communication is done over HTTPS (unencrypted traffic is blocked by default in production builds).',
+    's07-h2': 'Your rights and controls',
+    's07-list': '<li>Revoke the location permission at any time, without losing the rest of the app’s functions.</li><li>Disable "Audio responsive" and/or revoke the RECORD_AUDIO permission at any time, without losing the rest of the app’s functions.</li><li>Limit or disable ad personalization in your Android/Google settings.</li><li>Delete all of the app’s local data by uninstalling it.</li><li>Request clarification about this policy via the contact email (section 10).</li>',
+    's08-h2': 'Children',
+    's08-p1': 'LiveMaker is not directed at children under 13 and does not knowingly collect data from children. If you believe a child has provided us with data without proper consent, please contact us so we can remove that information.',
+    's09-h2': 'Changes to this policy',
+    's09-p1': 'We may update this policy as the app changes. The date at the top of the page ("EFFECTIVE") always reflects the most recent version. Material changes will be reflected on this same page.',
+    's10-h2': 'Contact',
+    's10-p1': 'Questions, requests, or privacy concerns can be sent to:'
+  };
+
+  var PT = {};
+  var nodes = document.querySelectorAll('[data-i18n]');
+  nodes.forEach(function (el) {
+    PT[el.getAttribute('data-i18n')] = el.innerHTML;
+  });
+
+  function applyLang(lang) {
+    var dict = lang === 'en' ? EN : PT;
+    nodes.forEach(function (el) {
+      var key = el.getAttribute('data-i18n');
+      if (dict[key] != null) el.innerHTML = dict[key];
+    });
+    var page = document.querySelector('.page');
+    if (page) page.setAttribute('lang', lang);
+    var ptBtn = document.getElementById('lang-btn-pt');
+    var enBtn = document.getElementById('lang-btn-en');
+    if (ptBtn) ptBtn.setAttribute('aria-pressed', String(lang === 'pt'));
+    if (enBtn) enBtn.setAttribute('aria-pressed', String(lang === 'en'));
+  }
+
+  window.setPolicyLang = function (lang) {
+    applyLang(lang);
+    try { localStorage.setItem('livemaker_policy_lang', lang); } catch (e) {}
+  };
+
+  var saved = null;
+  try { saved = localStorage.getItem('livemaker_policy_lang'); } catch (e) {}
+  if (saved === 'en' || saved === 'pt') {
+    applyLang(saved);
+  } else {
+    var browserLang = (navigator.language || '').toLowerCase();
+    applyLang(browserLang.indexOf('pt') === 0 ? 'pt' : 'en');
+  }
+})();
+</script>
