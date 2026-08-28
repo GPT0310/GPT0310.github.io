@@ -348,9 +348,9 @@
       <span class="sep">/</span>
       <span>LiveMaker</span>
       <span class="spacer"></span>
-      <span class="tabular"><span data-i18n="readout-label">EFETIVA</span> 2026-08-20</span>
+      <span class="tabular"><span data-i18n="readout-label">EFETIVA</span> 2026-08-28</span>
       <span class="sep">·</span>
-      <span class="tabular">v1.2</span>
+      <span class="tabular">v1.3</span>
       <span class="lang-toggle" role="group" aria-label="Language / Idioma">
         <button type="button" id="lang-btn-pt" aria-pressed="true" onclick="setPolicyLang('pt')">PT</button>
         <button type="button" id="lang-btn-en" aria-pressed="false" onclick="setPolicyLang('en')">EN</button>
@@ -412,6 +412,7 @@
             <li><strong>Dados técnicos de diagnóstico de anúncios</strong> — coletados pelo Google (impressões, cliques, informações do dispositivo) conforme a própria política do Google, descrita na seção 3.</li>
             <li><strong>Endereço IP</strong> — ao abrir a Galeria de Wallpapers, o app consulta um servidor (Supabase) para baixar a lista de wallpapers disponíveis, as miniaturas e, se você escolher aplicar um, o arquivo completo do wallpaper. Como qualquer requisição de rede, isso transmite seu endereço IP ao provedor de hospedagem — não usamos esse dado pra identificar ou rastrear você, ele existe só como parte de como a internet funciona (entrega do conteúdo).</li>
             <li><strong>Nível do áudio em reprodução no aparelho</strong> — só se você ativar manualmente a automação "Responsivo a áudio" (desligada por padrão). Veja a seção 5 para os detalhes técnicos e as garantias sobre esse recurso.</li>
+            <li><strong>Relatório de problema ou falha (opcional)</strong> — se você tocar em "Reportar um problema" (seção Contato) ou responder ao aviso exibido após uma falha inesperada do app, preenchemos automaticamente um rascunho de e-mail com a versão do app, versão do Android, modelo do aparelho e, no caso de falha, o registro técnico do erro (stack trace). Esse rascunho fica só no seu app de e-mail — nada é enviado sem você revisar e apertar "enviar". Não usamos nenhum serviço de terceiros (como Crashlytics) para coletar isso automaticamente.</li>
           </ul>
           <p data-i18n="s01-p2">Não pedimos cadastro, e-mail, nome ou qualquer identificação pessoal para usar o app. Se você nos contata voluntariamente por e-mail (seção 10), tratamos apenas o endereço usado nessa troca, só para responder.</p>
         </div>
@@ -575,6 +576,7 @@
         <div class="clause-body">
           <p data-i18n="s10-p1">Dúvidas, solicitações ou preocupações sobre privacidade podem ser enviadas para:</p>
           <p><a href="mailto:gptorturella@gmail.com">gptorturella@gmail.com</a></p>
+          <p data-i18n="s10-p2">O botão "Reportar um problema" dentro do app, e o aviso exibido após uma falha inesperada, usam esse mesmo e-mail — veja a seção 1 para o que é preenchido automaticamente nesse rascunho.</p>
         </div>
       </section>
 
@@ -612,7 +614,7 @@
     's00-p2': 'By installing and using LiveMaker, you agree to the collection and use of information described below. If you do not agree, please do not use the app.',
     's01-h2': 'Data we collect',
     's01-p1': 'LiveMaker was designed to work mostly offline. The data we collect is:',
-    's01-list': '<li><strong>Approximate or precise location</strong> — used only if you enable weather-based scene automation, to check the weather in your region and adjust the wallpaper automatically.</li><li><strong>Advertising ID</strong> — collected by the Google AdMob SDK to display and measure the editor’s banner ads.</li><li><strong>Technical ad diagnostic data</strong> — collected by Google (impressions, clicks, device information) under Google’s own policy, described in section 3.</li><li><strong>IP address</strong> — when you open the Wallpaper Gallery, the app queries a server (Supabase) to download the list of available wallpapers, thumbnails and, if you choose to apply one, the full wallpaper file. Like any network request, this transmits your IP address to the hosting provider — we do not use this data to identify or track you, it only exists as part of how the internet works (content delivery).</li><li><strong>Audio level currently playing on the device</strong> — only if you manually enable the "Audio responsive" automation (off by default). See section 5 for the technical details and guarantees around this feature.</li>',
+    's01-list': '<li><strong>Approximate or precise location</strong> — used only if you enable weather-based scene automation, to check the weather in your region and adjust the wallpaper automatically.</li><li><strong>Advertising ID</strong> — collected by the Google AdMob SDK to display and measure the editor’s banner ads.</li><li><strong>Technical ad diagnostic data</strong> — collected by Google (impressions, clicks, device information) under Google’s own policy, described in section 3.</li><li><strong>IP address</strong> — when you open the Wallpaper Gallery, the app queries a server (Supabase) to download the list of available wallpapers, thumbnails and, if you choose to apply one, the full wallpaper file. Like any network request, this transmits your IP address to the hosting provider — we do not use this data to identify or track you, it only exists as part of how the internet works (content delivery).</li><li><strong>Audio level currently playing on the device</strong> — only if you manually enable the "Audio responsive" automation (off by default). See section 5 for the technical details and guarantees around this feature.</li><li><strong>Problem or crash report (optional)</strong> — if you tap "Report a problem" (Contact section) or respond to the prompt shown after an unexpected app crash, we automatically pre-fill an email draft with the app version, Android version, device model, and, for crash reports, the technical error log (stack trace). This draft stays only in your own email app — nothing is sent unless you review it and tap "send". We do not use any third-party service (such as Crashlytics) to collect this automatically.</li>',
     's01-p2': 'We do not ask for a sign-up, email, name, or any personal identification to use the app. If you voluntarily contact us by email (section 10), we only process the address used in that exchange, solely to reply.',
     's02-h2': 'How we use the data',
     's02-list': '<li><strong>Location</strong> — exclusively to look up the current weather in your region and apply the corresponding scene/skybox, when this automation is enabled in settings. It is never sent to us, associated with you, or used for advertising.</li><li><strong>Advertising ID</strong> — to display relevant ads and measure their performance, through Google AdMob.</li><li><strong>Playing audio level</strong> — exclusively to make the wallpaper react visually (opacity, color, camera zoom, etc.) to whatever is playing on the device, when you enable this feature. It is never recorded, saved, or sent anywhere.</li>',
@@ -645,7 +647,8 @@
     's09-h2': 'Changes to this policy',
     's09-p1': 'We may update this policy as the app changes. The date at the top of the page ("EFFECTIVE") always reflects the most recent version. Material changes will be reflected on this same page.',
     's10-h2': 'Contact',
-    's10-p1': 'Questions, requests, or privacy concerns can be sent to:'
+    's10-p1': 'Questions, requests, or privacy concerns can be sent to:',
+    's10-p2': 'The in-app "Report a problem" button, and the prompt shown after an unexpected crash, use this same email address — see section 1 for what gets pre-filled in that draft.'
   };
 
   var PT = {};
