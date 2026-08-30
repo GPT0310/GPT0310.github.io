@@ -348,9 +348,9 @@
       <span class="sep">/</span>
       <span>LiveMaker</span>
       <span class="spacer"></span>
-      <span class="tabular"><span data-i18n="readout-label">EFETIVA</span> 2026-08-28</span>
+      <span class="tabular"><span data-i18n="readout-label">EFETIVA</span> 2026-08-30</span>
       <span class="sep">·</span>
-      <span class="tabular">v1.3</span>
+      <span class="tabular">v1.4</span>
       <span class="lang-toggle" role="group" aria-label="Language / Idioma">
         <button type="button" id="lang-btn-pt" aria-pressed="true" onclick="setPolicyLang('pt')">PT</button>
         <button type="button" id="lang-btn-en" aria-pressed="false" onclick="setPolicyLang('en')">EN</button>
@@ -449,7 +449,11 @@
           <ul data-i18n="s03-list2">
             <li><a href="https://supabase.com/privacy" target="_blank" rel="noopener">Política de Privacidade do Supabase</a></li>
           </ul>
-          <div class="note" data-i18n="s03-note">Não trabalhamos com nenhum outro SDK ou serviço de terceiros além do Google Mobile Ads (anúncios) e do Supabase (galeria de wallpapers). Nenhum dado de localização é enviado a redes de anúncios ou ao Supabase.</div>
+          <p data-i18n="s03-p4">O formulário de envio de wallpapers no site (<a href="https://www.dkryptlab.com.br/submit-wallpapers" target="_blank" rel="noopener">dkryptlab.com.br/submit-wallpapers</a>, ver seção 11) também usa o Supabase — dessa vez para receber e guardar os arquivos enviados até serem revisados — e usa o <strong>Cloudflare Turnstile</strong> para verificar que quem envia não é um robô, sem exigir captcha visual. Mais informações:</p>
+          <ul data-i18n="s03-list3">
+            <li><a href="https://www.cloudflare.com/privacypolicy/" target="_blank" rel="noopener">Política de Privacidade do Cloudflare</a></li>
+          </ul>
+          <div class="note" data-i18n="s03-note">O app em si não trabalha com nenhum outro SDK ou serviço de terceiros além do Google Mobile Ads (anúncios) e do Supabase (galeria de wallpapers). O site, além do Supabase, usa o Cloudflare Turnstile só no formulário de envio de wallpapers. Nenhum dado de localização é enviado a redes de anúncios, ao Supabase ou ao Cloudflare.</div>
         </div>
       </section>
 
@@ -580,6 +584,23 @@
         </div>
       </section>
 
+      <section class="clause" id="envio-wallpapers">
+        <div class="clause-head">
+          <span class="clause-num">11</span>
+          <h2 data-i18n="s11-h2">Envio de wallpapers pelo site</h2>
+        </div>
+        <div class="clause-body">
+          <p data-i18n="s11-p1">O site <a href="https://www.dkryptlab.com.br/submit-wallpapers" target="_blank" rel="noopener">dkryptlab.com.br/submit-wallpapers</a> permite que qualquer pessoa envie um pacote de wallpaper (exportado do próprio app LiveMaker) para possível inclusão na Galeria do app. Ao usar esse formulário, coletamos:</p>
+          <ul data-i18n="s11-list">
+            <li><strong>Título, categoria e texto de crédito/licença</strong> que você escreve no formulário.</li>
+            <li><strong>Seu nome e e-mail</strong> — opcionais, usados apenas se precisarmos falar com você sobre aquele envio específico.</li>
+            <li><strong>O arquivo .zip enviado</strong>, que pode conter modelos 3D, imagens ou outro conteúdo que você criou ou tem direito de compartilhar.</li>
+          </ul>
+          <p data-i18n="s11-p2">Todo envio passa por revisão manual antes de qualquer coisa se tornar pública — nada é publicado automaticamente. Se aprovado, o título, a categoria, o texto de crédito e o próprio wallpaper passam a aparecer publicamente dentro da Galeria do app. Seu nome e e-mail nunca são publicados — servem só para contato sobre aquele envio, se necessário.</p>
+          <p data-i18n="s11-p3">Envios ficam guardados de forma privada (Supabase, ver seção 3) até serem revisados; envios rejeitados ou ainda não revisados nunca ficam públicos. O formulário usa o Cloudflare Turnstile para bloquear envios automatizados (bots) — ver seção 3. Você pode pedir a remoção de um wallpaper que enviou, ou dos seus dados de contato associados ao envio, pelo e-mail de contato (seção 10).</p>
+        </div>
+      </section>
+
     </div>
 
     <div class="foot">
@@ -625,7 +646,9 @@
     's03-p2': 'You can limit ad personalization in your Android device’s privacy settings (<em>Settings → Google → Ads → Opt out of Ads Personalization</em>).',
     's03-p3': 'LiveMaker also uses <strong>Supabase</strong> to host the Wallpaper Gallery catalog (list of available wallpapers, thumbnails, and the full wallpaper files). No account, email, or personal identification is sent in these requests — it is an anonymous query of public content, just like loading an image from a website. More information:',
     's03-list2': '<li><a href="https://supabase.com/privacy" target="_blank" rel="noopener">Supabase Privacy Policy</a></li>',
-    's03-note': 'We do not work with any other third-party SDK or service besides Google Mobile Ads (advertising) and Supabase (wallpaper gallery). No location data is ever sent to ad networks or to Supabase.',
+    's03-p4': 'The wallpaper submission form on the website (<a href="https://www.dkryptlab.com.br/submit-wallpapers" target="_blank" rel="noopener">dkryptlab.com.br/submit-wallpapers</a>, see section 11) also uses Supabase — this time to receive and hold submitted files until they are reviewed — and uses <strong>Cloudflare Turnstile</strong> to verify submitters are not bots, without a visual captcha. More information:',
+    's03-list3': '<li><a href="https://www.cloudflare.com/privacypolicy/" target="_blank" rel="noopener">Cloudflare Privacy Policy</a></li>',
+    's03-note': 'The app itself does not work with any other third-party SDK or service besides Google Mobile Ads (advertising) and Supabase (wallpaper gallery). The website, besides Supabase, uses Cloudflare Turnstile only on the wallpaper submission form. No location data is ever sent to ad networks, Supabase, or Cloudflare.',
     's04-h2': 'App permissions',
     's04-thead': '<tr><th>Permission</th><th>Reason</th><th>Required</th></tr>',
     's04-tbody': '<tr><td class="perm-name">SET_WALLPAPER</td><td>Apply the created scene as an animated wallpaper.</td><td>Yes</td></tr><tr><td class="perm-name">INTERNET</td><td>Load ads and check weather data (if enabled).</td><td>Yes</td></tr><tr><td class="perm-name">ACCESS_COARSE_LOCATION<br />ACCESS_FINE_LOCATION</td><td>Only used by weather automation, and only if you enable it.</td><td>No</td></tr><tr><td class="perm-name">RECORD_AUDIO</td><td>Only used by "Audio responsive" automation, and only if you enable it. See section 5.</td><td>No</td></tr><tr><td class="perm-name">FOREGROUND_SERVICE<br />FOREGROUND_SERVICE_MEDIA_PROJECTION</td><td>Keep audio-level reading running while the wallpaper is active, with a persistent notification visible at all times. Only used if "Audio responsive" is enabled.</td><td>No</td></tr><tr><td class="perm-name">POST_NOTIFICATIONS</td><td>Show the mandatory persistent notification while "Audio responsive" is active (an Android requirement for this type of service).</td><td>No</td></tr>',
@@ -648,7 +671,12 @@
     's09-p1': 'We may update this policy as the app changes. The date at the top of the page ("EFFECTIVE") always reflects the most recent version. Material changes will be reflected on this same page.',
     's10-h2': 'Contact',
     's10-p1': 'Questions, requests, or privacy concerns can be sent to:',
-    's10-p2': 'The in-app "Report a problem" button, and the prompt shown after an unexpected crash, use this same email address — see section 1 for what gets pre-filled in that draft.'
+    's10-p2': 'The in-app "Report a problem" button, and the prompt shown after an unexpected crash, use this same email address — see section 1 for what gets pre-filled in that draft.',
+    's11-h2': 'Website wallpaper submissions',
+    's11-p1': 'The site <a href="https://www.dkryptlab.com.br/submit-wallpapers" target="_blank" rel="noopener">dkryptlab.com.br/submit-wallpapers</a> lets anyone submit a wallpaper package (exported from the LiveMaker app itself) for possible inclusion in the app\'s Gallery. By using this form, we collect:',
+    's11-list': '<li><strong>Title, category, and credit/license text</strong> that you write in the form.</li><li><strong>Your name and email</strong> — optional, used only if we need to reach you about that specific submission.</li><li><strong>The submitted .zip file</strong>, which may contain 3D models, images, or other content you created or have the right to share.</li>',
+    's11-p2': 'Every submission goes through manual review before anything becomes public — nothing is published automatically. If approved, the title, category, credit text, and the wallpaper itself become publicly visible inside the app\'s Gallery. Your name and email are never published — they are used only to contact you about that submission, if needed.',
+    's11-p3': 'Submissions are stored privately (Supabase, see section 3) until reviewed; rejected or not-yet-reviewed submissions never become public. The form uses Cloudflare Turnstile to block automated (bot) submissions — see section 3. You can request removal of a wallpaper you submitted, or of the contact details tied to that submission, via the contact email (section 10).'
   };
 
   var PT = {};
