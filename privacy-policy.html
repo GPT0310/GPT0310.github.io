@@ -348,9 +348,9 @@
       <span class="sep">/</span>
       <span>LiveMaker</span>
       <span class="spacer"></span>
-      <span class="tabular"><span data-i18n="readout-label">EFETIVA</span> 2026-08-30</span>
+      <span class="tabular"><span data-i18n="readout-label">EFETIVA</span> 2026-09-15</span>
       <span class="sep">·</span>
-      <span class="tabular">v1.5</span>
+      <span class="tabular">v1.7</span>
       <span class="lang-toggle" role="group" aria-label="Language / Idioma">
         <button type="button" id="lang-btn-pt" aria-pressed="true" onclick="setPolicyLang('pt')">PT</button>
         <button type="button" id="lang-btn-en" aria-pressed="false" onclick="setPolicyLang('en')">EN</button>
@@ -384,6 +384,10 @@
         <p class="k" data-i18n="fact-5-k">Áudio do aparelho (recurso opcional)</p>
         <p class="v ok" data-i18n="fact-5-v">Processado só no aparelho, nunca gravado ou enviado</p>
       </div>
+      <div class="fact">
+        <p class="k" data-i18n="fact-6-k">Geração 3D por IA (recurso opcional)</p>
+        <p class="v" data-i18n="fact-6-v">Só ativa se você colar sua própria chave da Tripo AI — nesse caso, seu prompt e a imagem anexada são enviados a ela</p>
+      </div>
     </div>
 
     <div class="body-copy">
@@ -411,6 +415,7 @@
             <li><strong>Identificador de publicidade (Advertising ID)</strong> — coletado pelo SDK do Google AdMob para exibir e medir os anúncios em banner do editor.</li>
             <li><strong>Dados técnicos de diagnóstico de anúncios</strong> — coletados pelo Google (impressões, cliques, informações do dispositivo) conforme a própria política do Google, descrita na seção 3.</li>
             <li><strong>Endereço IP</strong> — ao abrir a Galeria de Wallpapers, o app consulta um servidor (Supabase) para baixar a lista de wallpapers disponíveis, as miniaturas e, se você escolher aplicar um, o arquivo completo do wallpaper. Como qualquer requisição de rede, isso transmite seu endereço IP ao provedor de hospedagem — não usamos esse dado pra identificar ou rastrear você, ele existe só como parte de como a internet funciona (entrega do conteúdo).</li>
+            <li><strong>Prompt de texto, imagem anexada e chave de API da Tripo AI (recurso opcional "IA")</strong> — só se você usar a aba "IA" do editor para gerar um modelo 3D: sua chave de API, o texto descrevendo o modelo desejado e a imagem anexada (se houver) são enviados direto para o servidor da Tripo AI — não passam pelos nossos servidores, não temos nenhum — para gerar o modelo, que depois é baixado para o seu aparelho. Você precisa da sua própria conta e créditos na Tripo; veja a seção 3.</li>
             <li><strong>Nível do áudio em reprodução no aparelho</strong> — só se você ativar manualmente a automação "Responsivo a áudio" (desligada por padrão). Veja a seção 5 para os detalhes técnicos e as garantias sobre esse recurso.</li>
             <li><strong>Relatório de problema ou falha (opcional)</strong> — se você tocar em "Reportar um problema" (seção Contato) ou responder ao aviso exibido após uma falha inesperada do app, preenchemos automaticamente um rascunho de e-mail com a versão do app, versão do Android, modelo do aparelho e, no caso de falha, o registro técnico do erro (stack trace). Esse rascunho fica só no seu app de e-mail — nada é enviado sem você revisar e apertar "enviar". Não usamos nenhum serviço de terceiros (como Crashlytics) para coletar isso automaticamente.</li>
           </ul>
@@ -428,6 +433,7 @@
             <li><strong>Localização</strong> — exclusivamente para buscar o clima atual da sua região e aplicar a cena/skybox correspondente, quando essa automação está ativada nas configurações. Nunca é enviada para nós, associada a você ou usada para publicidade.</li>
             <li><strong>ID de publicidade</strong> — exibir anúncios relevantes e medir seu desempenho, através do Google AdMob.</li>
             <li><strong>Nível do áudio em reprodução</strong> — exclusivamente para fazer o papel de parede reagir visualmente (opacidade, cor, zoom da câmera etc) ao que está tocando no aparelho, quando você ativa esse recurso. Nunca é gravado, salvo ou enviado a lugar nenhum.</li>
+            <li><strong>Prompt e imagem do recurso de IA</strong> — usados exclusivamente para gerar o modelo 3D que você pediu, através da Tripo AI. Não guardamos cópia do seu prompt, da imagem ou da sua chave de API nos nossos servidores (não temos nenhum) — eles passam do seu aparelho direto para a Tripo.</li>
           </ul>
           <p data-i18n="s02-p1">Não usamos seus dados para perfis de comportamento próprios, não os vendemos e não os compartilhamos com ninguém além do necessário para exibir anúncios (seção 3).</p>
         </div>
@@ -453,7 +459,11 @@
           <ul data-i18n="s03-list3">
             <li><a href="https://www.cloudflare.com/privacypolicy/" target="_blank" rel="noopener">Política de Privacidade do Cloudflare</a></li>
           </ul>
-          <div class="note" data-i18n="s03-note">O app em si não trabalha com nenhum outro SDK ou serviço de terceiros além do Google Mobile Ads (anúncios) e do Supabase (galeria de wallpapers). O site, além do Supabase, usa o Cloudflare Turnstile só no formulário de envio de wallpapers. Nenhum dado de localização é enviado a redes de anúncios, ao Supabase ou ao Cloudflare.</div>
+          <p data-i18n="s03-p5">Se você usar o recurso opcional de geração de modelo 3D por IA (aba "IA" do editor), o LiveMaker se conecta direto à <strong>Tripo AI</strong> usando a chave de API que você mesmo cola no app — é a sua própria conta e seus próprios créditos na Tripo, não nossos, e a cobrança é feita por ela, não por nós. Ao usar o recurso, sua chave de API, o texto descrevendo o modelo desejado e, se você anexar, uma imagem, são enviados aos servidores da Tripo AI para gerar o modelo 3D, que em seguida é baixado para o seu aparelho. Sua chave de API fica guardada só localmente, no seu aparelho. Mais informações:</p>
+          <ul data-i18n="s03-list4">
+            <li><a href="https://www.tripo3d.ai/privacy" target="_blank" rel="noopener">Política de Privacidade da Tripo AI</a></li>
+          </ul>
+          <div class="note" data-i18n="s03-note">Fora do recurso opcional de geração 3D por IA (que só entra em ação se você colar sua própria chave da Tripo AI), o app não trabalha com nenhum outro SDK ou serviço de terceiros além do Google Mobile Ads (anúncios) e do Supabase (galeria de wallpapers). O site, além do Supabase, usa o Cloudflare Turnstile só no formulário de envio de wallpapers. Nenhum dado de localização é enviado a redes de anúncios, ao Supabase, à Tripo AI ou ao Cloudflare.</div>
         </div>
       </section>
 
@@ -579,7 +589,7 @@
         </div>
         <div class="clause-body">
           <p data-i18n="s10-p1">Dúvidas, solicitações ou preocupações sobre privacidade podem ser enviadas para:</p>
-          <p><a href="mailto:gptorturella@gmail.com">gptorturella@gmail.com</a></p>
+          <p><a href="mailto:contact@dkryptlab.com.br">contact@dkryptlab.com.br</a></p>
           <p data-i18n="s10-p2">O botão "Reportar um problema" dentro do app, e o aviso exibido após uma falha inesperada, usam esse mesmo e-mail — veja a seção 1 para o que é preenchido automaticamente nesse rascunho.</p>
         </div>
       </section>
@@ -605,7 +615,7 @@
 
     <div class="foot">
       <span class="mark">Dkrypt LAB — <b>LiveMaker</b></span>
-      <span class="contact"><a href="mailto:gptorturella@gmail.com">gptorturella@gmail.com</a></span>
+      <span class="contact"><a href="mailto:contact@dkryptlab.com.br">contact@dkryptlab.com.br</a></span>
     </div>
   </div>
 </div>
@@ -630,15 +640,17 @@
     'fact-4-v': 'Never',
     'fact-5-k': 'Device audio (optional feature)',
     'fact-5-v': 'Processed on-device only, never recorded or sent',
+    'fact-6-k': 'AI 3D generation (optional feature)',
+    'fact-6-v': 'Only active if you paste your own Tripo AI key — in that case, your prompt and attached image are sent to it',
     's00-h2': 'About this document',
     's00-p1': '<strong>LiveMaker</strong> (package <code>com.stlparallax.wallpaperapp</code>) is an Android app that lets you import 3D models (GLB, glTF, STL, 3MF) and create animated, interactive wallpapers. This policy applies to all versions of the app distributed on the Google Play Store.',
     's00-p2': 'By installing and using LiveMaker, you agree to the collection and use of information described below. If you do not agree, please do not use the app.',
     's01-h2': 'Data we collect',
     's01-p1': 'LiveMaker was designed to work mostly offline. The data we collect is:',
-    's01-list': '<li><strong>Approximate or precise location</strong> — used only if you enable weather-based scene automation, to check the weather in your region and adjust the wallpaper automatically.</li><li><strong>Advertising ID</strong> — collected by the Google AdMob SDK to display and measure the editor’s banner ads.</li><li><strong>Technical ad diagnostic data</strong> — collected by Google (impressions, clicks, device information) under Google’s own policy, described in section 3.</li><li><strong>IP address</strong> — when you open the Wallpaper Gallery, the app queries a server (Supabase) to download the list of available wallpapers, thumbnails and, if you choose to apply one, the full wallpaper file. Like any network request, this transmits your IP address to the hosting provider — we do not use this data to identify or track you, it only exists as part of how the internet works (content delivery).</li><li><strong>Audio level currently playing on the device</strong> — only if you manually enable the "Audio responsive" automation (off by default). See section 5 for the technical details and guarantees around this feature.</li><li><strong>Problem or crash report (optional)</strong> — if you tap "Report a problem" (Contact section) or respond to the prompt shown after an unexpected app crash, we automatically pre-fill an email draft with the app version, Android version, device model, and, for crash reports, the technical error log (stack trace). This draft stays only in your own email app — nothing is sent unless you review it and tap "send". We do not use any third-party service (such as Crashlytics) to collect this automatically.</li>',
+    's01-list': '<li><strong>Approximate or precise location</strong> — used only if you enable weather-based scene automation, to check the weather in your region and adjust the wallpaper automatically.</li><li><strong>Advertising ID</strong> — collected by the Google AdMob SDK to display and measure the editor’s banner ads.</li><li><strong>Technical ad diagnostic data</strong> — collected by Google (impressions, clicks, device information) under Google’s own policy, described in section 3.</li><li><strong>IP address</strong> — when you open the Wallpaper Gallery, the app queries a server (Supabase) to download the list of available wallpapers, thumbnails and, if you choose to apply one, the full wallpaper file. Like any network request, this transmits your IP address to the hosting provider — we do not use this data to identify or track you, it only exists as part of how the internet works (content delivery).</li><li><strong>Text prompt, attached image, and Tripo AI API key (optional "AI" feature)</strong> — only if you use the editor’s "AI" tab to generate a 3D model: your API key, the text describing the desired model, and the attached image (if any) are sent directly to the Tripo AI server — they never pass through our servers, we do not have any — to generate the model, which is then downloaded to your device. You need your own account and credits with Tripo; see section 3.</li><li><strong>Audio level currently playing on the device</strong> — only if you manually enable the "Audio responsive" automation (off by default). See section 5 for the technical details and guarantees around this feature.</li><li><strong>Problem or crash report (optional)</strong> — if you tap "Report a problem" (Contact section) or respond to the prompt shown after an unexpected app crash, we automatically pre-fill an email draft with the app version, Android version, device model, and, for crash reports, the technical error log (stack trace). This draft stays only in your own email app — nothing is sent unless you review it and tap "send". We do not use any third-party service (such as Crashlytics) to collect this automatically.</li>',
     's01-p2': 'We do not ask for a sign-up, email, name, or any personal identification to use the app. If you voluntarily contact us by email (section 10), we only process the address used in that exchange, solely to reply.',
     's02-h2': 'How we use the data',
-    's02-list': '<li><strong>Location</strong> — exclusively to look up the current weather in your region and apply the corresponding scene/skybox, when this automation is enabled in settings. It is never sent to us, associated with you, or used for advertising.</li><li><strong>Advertising ID</strong> — to display relevant ads and measure their performance, through Google AdMob.</li><li><strong>Playing audio level</strong> — exclusively to make the wallpaper react visually (opacity, color, camera zoom, etc.) to whatever is playing on the device, when you enable this feature. It is never recorded, saved, or sent anywhere.</li>',
+    's02-list': '<li><strong>Location</strong> — exclusively to look up the current weather in your region and apply the corresponding scene/skybox, when this automation is enabled in settings. It is never sent to us, associated with you, or used for advertising.</li><li><strong>Advertising ID</strong> — to display relevant ads and measure their performance, through Google AdMob.</li><li><strong>Playing audio level</strong> — exclusively to make the wallpaper react visually (opacity, color, camera zoom, etc.) to whatever is playing on the device, when you enable this feature. It is never recorded, saved, or sent anywhere.</li><li><strong>AI feature prompt and image</strong> — used exclusively to generate the 3D model you requested, through Tripo AI. We do not keep a copy of your prompt, image, or API key on our servers (we do not have any) — they go straight from your device to Tripo.</li>',
     's02-p1': 'We do not use your data to build behavioral profiles of our own, we do not sell it, and we do not share it with anyone beyond what is necessary to display ads (section 3).',
     's03-h2': 'Third parties',
     's03-p1': 'LiveMaker uses <strong>Google Mobile Ads (AdMob)</strong> to display a banner ad in the editor. Google may collect advertising identifiers, ad interaction data, and device information, under:',
@@ -648,7 +660,9 @@
     's03-list2': '<li><a href="https://supabase.com/privacy" target="_blank" rel="noopener">Supabase Privacy Policy</a></li>',
     's03-p4': 'The wallpaper submission form on the website (<a href="https://www.dkryptlab.com.br/submit-wallpapers" target="_blank" rel="noopener">dkryptlab.com.br/submit-wallpapers</a>, see section 11) also uses Supabase — this time to receive and hold submitted files until they are reviewed — and uses <strong>Cloudflare Turnstile</strong> to verify submitters are not bots, without a visual captcha. More information:',
     's03-list3': '<li><a href="https://www.cloudflare.com/privacypolicy/" target="_blank" rel="noopener">Cloudflare Privacy Policy</a></li>',
-    's03-note': 'The app itself does not work with any other third-party SDK or service besides Google Mobile Ads (advertising) and Supabase (wallpaper gallery). The website, besides Supabase, uses Cloudflare Turnstile only on the wallpaper submission form. No location data is ever sent to ad networks, Supabase, or Cloudflare.',
+    's03-p5': 'If you use the optional AI 3D model generation feature (the editor’s "AI" tab), LiveMaker connects directly to <strong>Tripo AI</strong> using the API key you paste into the app yourself — it is your own account and your own credits with Tripo, not ours, and billing is handled by them, not us. When you use the feature, your API key, the text describing the desired model, and, if you attach one, an image, are sent to Tripo AI’s servers to generate the 3D model, which is then downloaded to your device. Your API key is stored only locally, on your device. More information:',
+    's03-list4': '<li><a href="https://www.tripo3d.ai/privacy" target="_blank" rel="noopener">Tripo AI Privacy Policy</a></li>',
+    's03-note': 'Outside of the optional AI 3D generation feature (which only activates if you paste your own Tripo AI key), the app does not work with any other third-party SDK or service besides Google Mobile Ads (advertising) and Supabase (wallpaper gallery). The website, besides Supabase, uses Cloudflare Turnstile only on the wallpaper submission form. No location data is ever sent to ad networks, Supabase, Tripo AI, or Cloudflare.',
     's04-h2': 'App permissions',
     's04-thead': '<tr><th>Permission</th><th>Reason</th><th>Required</th></tr>',
     's04-tbody': '<tr><td class="perm-name">SET_WALLPAPER</td><td>Apply the created scene as an animated wallpaper.</td><td>Yes</td></tr><tr><td class="perm-name">INTERNET</td><td>Load ads and check weather data (if enabled).</td><td>Yes</td></tr><tr><td class="perm-name">ACCESS_COARSE_LOCATION<br />ACCESS_FINE_LOCATION</td><td>Only used by weather automation, and only if you enable it.</td><td>No</td></tr><tr><td class="perm-name">RECORD_AUDIO</td><td>Only used by "Audio responsive" automation, and only if you enable it. See section 5.</td><td>No</td></tr><tr><td class="perm-name">FOREGROUND_SERVICE<br />FOREGROUND_SERVICE_MEDIA_PROJECTION</td><td>Keep audio-level reading running while the wallpaper is active, with a persistent notification visible at all times. Only used if "Audio responsive" is enabled.</td><td>No</td></tr><tr><td class="perm-name">POST_NOTIFICATIONS</td><td>Show the mandatory persistent notification while "Audio responsive" is active (an Android requirement for this type of service).</td><td>No</td></tr>',
