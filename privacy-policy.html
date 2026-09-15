@@ -173,7 +173,10 @@
   /* ---- quick facts ---- */
   .facts {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    /* Fixo em 3 (não auto-fit) de propósito: com 6 fatos ao todo, 3 colunas sempre fecha em
+       2 fileiras completas, sem sobrar uma fileira final pela metade vazia — o que acontecia
+       com auto-fit quando a fileira comportava 5 mas o 6º item sobrava sozinho. */
+    grid-template-columns: repeat(3, 1fr);
     gap: 1px;
     background: var(--line);
     border-top: 1px solid var(--line);
@@ -337,6 +340,10 @@
   @media (max-width: 640px) {
     .clause-head { grid-template-columns: 1fr; row-gap: 6px; }
     .clause-body { margin-left: 0; grid-column: 1; }
+    /* 2 colunas (3 fileiras de 2) numa tela estreita — 3 colunas ficariam apertadas demais
+       pro texto mais longo dos fatos (ex: o de geração 3D por IA). Continua sem sobra vazia,
+       já que 6 também divide certinho por 2. */
+    .facts { grid-template-columns: repeat(2, 1fr); }
   }
 </style>
 
