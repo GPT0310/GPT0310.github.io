@@ -1,0 +1,12 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.stlparallax.wallpaperapp",
+      "sha256_cert_fingerprints": [
+        "38:0B:12:FC:00:20:A2:C2:CF:3A:C2:54:95:C9:36:15:74:9C:D7:D8:4B:5A:B1:AA:3E:67:C9:54:DA:CA:53:EA"
+      ]
+    }
+  }
+]
