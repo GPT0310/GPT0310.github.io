@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>LiveMaker — Wallpaper compartilhado</title>
+<meta name="robots" content="noindex" />
+<style>
+  :root {
+    color-scheme: dark;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: radial-gradient(circle at 50% 0%, #1c2333 0%, #0a0d14 65%);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    color: #f2f4f8;
+    padding: 24px;
+  }
+  .card {
+    width: 100%;
+    max-width: 380px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 24px;
+    padding: 28px 24px 24px;
+    text-align: center;
+    backdrop-filter: blur(12px);
+  }
+  .preview-wrap {
+    width: 100%;
+    aspect-ratio: 9 / 16;
+    max-height: 46vh;
+    border-radius: 18px;
+    overflow: hidden;
+    background: #12161f;
+    margin: 0 auto 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .preview-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .preview-wrap.no-image::before {
+    content: "🖼️";
+    font-size: 40px;
+    opacity: 0.4;
+  }
+  h1 {
+    font-size: 20px;
+    margin: 0 0 6px;
+  }
+  p.subtitle {
+    margin: 0 0 20px;
+    font-size: 14px;
+    line-height: 1.5;
+    color: rgba(242, 244, 248, 0.7);
+  }
+  .cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    padding: 14px 20px;
+    border-radius: 14px;
+    background: #34d399;
+    color: #06251b;
+    font-weight: 700;
+    font-size: 15px;
+    text-decoration: none;
+    margin-bottom: 10px;
+  }
+  .cta:active { opacity: 0.85; }
+  .open-app {
+    display: block;
+    font-size: 13px;
+    color: rgba(242, 244, 248, 0.55);
+    text-decoration: underline;
+    margin-top: 4px;
+  }
+  .expiry {
+    margin-top: 18px;
+    font-size: 12px;
+    line-height: 1.5;
+    color: rgba(242, 244, 248, 0.45);
+  }
+  .error {
+    font-size: 14px;
+    color: rgba(242, 244, 248, 0.7);
+  }
+</style>
+</head>
+<body>
+  <div class="card" id="card">
+    <div class="preview-wrap no-image" id="previewWrap">
+      <img id="previewImg" alt="Prévia do wallpaper" style="display:none" />
+    </div>
+    <h1>Alguém compartilhou um wallpaper com você</h1>
+    <p class="subtitle">Feito com o <strong>LiveMaker</strong> — instale o app pra abrir esse wallpaper exato no seu celular.</p>
+    <a class="cta" id="playStoreLink" href="#">Instalar na Google Play</a>
+    <a class="open-app" id="openAppLink" href="#">Já tenho o LiveMaker instalado</a>
+    <p class="expiry">⏳ Este link de compartilhamento expira em 24 horas após a criação.</p>
+  </div>
+
+  <script>
+    (function () {
+      var PACKAGE_NAME = "com.stlparallax.wallpaperapp";
+      var SUPABASE_URL = "https://mrtaejsayswrnmsbhlrr.supabase.co";
+      var SHARED_BUCKET = "shared_wallpapers";
+
+      var params = new URLSearchParams(window.location.search);
+      var id = params.get("id"); // ex: "3fa85f64-....wlm"
+
+      var card = document.getElementById("card");
+      if (!id) {
+        card.innerHTML = '<p class="error">Link inválido ou incompleto.</p>';
+        return;
+      }
+
+      // Base do UUID (sem ".wlm") — a prévia foi subida com o MESMO nome, extensão .png
+      // (ver uploadSharedWallpaperPreview em SupabaseWallpaperRepository.kt).
+      var idBase = id.replace(/\.wlm$/i, "");
+      var previewUrl = SUPABASE_URL + "/storage/v1/object/public/" + SHARED_BUCKET + "/" + idBase + ".png";
+
+      var previewWrap = document.getElementById("previewWrap");
+      var previewImg = document.getElementById("previewImg");
+      previewImg.onload = function () {
+        previewImg.style.display = "block";
+        previewWrap.classList.remove("no-image");
+      };
+      previewImg.onerror = function () {
+        // Prévia pode não existir (upload dela é best-effort) ou o link já expirou — sem imagem,
+        // a página continua funcional (só sem a prévia visual).
+        previewImg.style.display = "none";
+      };
+      previewImg.src = previewUrl;
+
+      // referrer=wlm_id%3D<id> — lido pelo app na primeira abertura via Play Install Referrer
+      // (ver checkInstallReferrerForSharedWallpaper em MainActivity.kt) pra importar o wallpaper
+      // sozinho, sem precisar reabrir este link depois de instalar.
+      var referrer = encodeURIComponent("wlm_id=" + id);
+      var playStoreUrl = "https://play.google.com/store/apps/details?id=" + PACKAGE_NAME + "&referrer=" + referrer;
+      document.getElementById("playStoreLink").href = playStoreUrl;
+
+      // Fallback pra quem JÁ tem o app mas caiu aqui mesmo assim (verificação do App Link ainda
+      // não propagou, ou o usuário abriu o link "sempre no navegador") — intent:// é o jeito
+      // padrão de tentar abrir um app específico a partir de uma página web, com volta pra esta
+      // mesma página se o app não estiver instalado.
+      var intentUrl = "intent://gpt0310.github.io/w.html?id=" + encodeURIComponent(id) +
+        "#Intent;scheme=https;package=" + PACKAGE_NAME +
+        ";S.browser_fallback_url=" + encodeURIComponent(window.location.href) + ";end";
+      document.getElementById("openAppLink").href = intentUrl;
+    })();
+  </script>
+</body>
+</html>
