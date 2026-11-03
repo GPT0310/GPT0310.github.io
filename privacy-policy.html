@@ -355,9 +355,9 @@
       <span class="sep">/</span>
       <span>LiveMaker</span>
       <span class="spacer"></span>
-      <span class="tabular"><span data-i18n="readout-label">EFETIVA</span> 2026-09-17</span>
+      <span class="tabular"><span data-i18n="readout-label">EFETIVA</span> 2026-10-28</span>
       <span class="sep">·</span>
-      <span class="tabular">v1.7</span>
+      <span class="tabular">v1.8</span>
       <span class="lang-toggle" role="group" aria-label="Language / Idioma">
         <button type="button" id="lang-btn-pt" aria-pressed="true" onclick="setPolicyLang('pt')">PT</button>
         <button type="button" id="lang-btn-en" aria-pressed="false" onclick="setPolicyLang('en')">EN</button>
@@ -377,7 +377,7 @@
       </div>
       <div class="fact">
         <p class="k" data-i18n="fact-2-k">Compartilhado com</p>
-        <p class="v" data-i18n="fact-2-v">Google AdMob (anúncios) e Supabase (galeria de wallpapers e links de compartilhamento)</p>
+        <p class="v" data-i18n="fact-2-v">Google AdMob (anúncios), Supabase (galeria, links de compartilhamento e fila do AI Basic), Google Play (assinatura) e Modal Labs (geração 3D do AI Basic)</p>
       </div>
       <div class="fact">
         <p class="k" data-i18n="fact-3-k">Conta necessária</p>
@@ -393,7 +393,7 @@
       </div>
       <div class="fact">
         <p class="k" data-i18n="fact-6-k">Geração 3D por IA (recurso opcional)</p>
-        <p class="v" data-i18n="fact-6-v">Só ativa se você colar sua própria chave da Tripo AI — nesse caso, seu prompt e a imagem anexada são enviados a ela</p>
+        <p class="v" data-i18n="fact-6-v">Opcional. Com a sua chave da Tripo AI, o prompt e a imagem vão direto a ela. Com o AI Basic (assinatura), a imagem (sem fundo) vai à Modal Labs (EUA) para gerar o 3D; texto, imagem e modelo são apagados em 7 dias</p>
       </div>
     </div>
 
@@ -407,6 +407,7 @@
         <div class="clause-body">
           <p data-i18n="s00-p1">O <strong>LiveMaker</strong> (pacote <code>com.stlparallax.wallpaperapp</code>) é um aplicativo Android que permite importar modelos 3D (GLB, glTF, STL, 3MF) e criar papéis de parede animados e interativos. Esta política se aplica a todas as versões do app distribuídas na Google Play Store.</p>
           <p data-i18n="s00-p2">Ao instalar e usar o LiveMaker, você concorda com a coleta e o uso de informações descritos abaixo. Se você não concorda, não utilize o aplicativo.</p>
+          <p data-i18n="s00-p3">Os <a href="https://www.dkryptlab.com.br/termos-de-uso-ia" target="_blank" rel="noopener">Termos de Uso</a> (incluindo as regras da assinatura AI Basic) complementam esta política.</p>
         </div>
       </section>
 
@@ -418,11 +419,13 @@
         <div class="clause-body">
           <p data-i18n="s01-p1">O LiveMaker foi desenhado para funcionar majoritariamente offline. Os dados coletados são:</p>
           <ul data-i18n="s01-list">
-            <li><strong>Localização aproximada ou precisa</strong> — usada apenas se você ativar a automação de cena por clima, para consultar as condições climáticas da sua região e ajustar o papel de parede automaticamente.</li>
+            <li><strong>Localização aproximada</strong> — usada apenas se você ativar a automação de cena por clima, para consultar as condições climáticas da sua região e ajustar o papel de parede automaticamente.</li>
             <li><strong>Identificador de publicidade (Advertising ID)</strong> — coletado pelo SDK do Google AdMob para exibir e medir os anúncios em banner do editor.</li>
             <li><strong>Dados técnicos de diagnóstico de anúncios</strong> — coletados pelo Google (impressões, cliques, informações do dispositivo) conforme a própria política do Google, descrita na seção 3.</li>
             <li><strong>Endereço IP</strong> — ao abrir a Galeria de Wallpapers ou usar o recurso <strong>Compartilhar → Link para instalar o wallpaper</strong>, o app troca dados com um servidor (Supabase): baixando a lista de wallpapers disponíveis, miniaturas e arquivos completos no primeiro caso, ou enviando o wallpaper e uma imagem de prévia pra gerar o link no segundo (seção 3). Como qualquer requisição de rede, isso transmite seu endereço IP ao provedor de hospedagem — não usamos esse dado pra identificar ou rastrear você, ele existe só como parte de como a internet funciona (entrega do conteúdo).</li>
             <li><strong>Prompt de texto, imagem anexada e chave de API da Tripo AI (recurso opcional "IA")</strong> — só se você usar a aba "IA" do editor para gerar um modelo 3D: sua chave de API, o texto descrevendo o modelo desejado e a imagem anexada (se houver) são enviados direto para o servidor da Tripo AI — não passam pelos nossos servidores, não temos nenhum — para gerar o modelo, que depois é baixado para o seu aparelho. Você precisa da sua própria conta e créditos na Tripo; veja a seção 3.</li>
+            <li><strong>Assinatura do AI Basic (recurso opcional)</strong> — só se você assinar: o Google Play processa o pagamento e informa ao nosso servidor um código de compra, o estado da assinatura e o país da sua conta do Google Play; não recebemos nome, e-mail nem dados de pagamento. O app usa um identificador anônimo gerado no aparelho (não é o ID de publicidade) e uma chave criptográfica do aparelho para assinar as requisições. Veja a seção 12.</li>
+            <li><strong>Texto, imagem e modelo do AI Basic</strong> — só se você gerar um modelo pelo AI Basic: o texto (em inglês), a imagem anexada (se houver) e o modelo 3D gerado ficam guardados no nosso servidor por até 7 dias, para a geração e a importação. Veja a seção 12.</li>
             <li><strong>Nível do áudio em reprodução no aparelho</strong> — só se você ativar manualmente a automação "Responsivo a áudio" (desligada por padrão). Veja a seção 5 para os detalhes técnicos e as garantias sobre esse recurso.</li>
             <li><strong>Relatório de problema ou falha (opcional)</strong> — se você tocar em "Reportar um problema" (seção Contato) ou responder ao aviso exibido após uma falha inesperada do app, preenchemos automaticamente um rascunho de e-mail com a versão do app, versão do Android, modelo do aparelho e, no caso de falha, o registro técnico do erro (stack trace). Esse rascunho fica só no seu app de e-mail — nada é enviado sem você revisar e apertar "enviar". Não usamos nenhum serviço de terceiros (como Crashlytics) para coletar isso automaticamente.</li>
           </ul>
@@ -441,8 +444,9 @@
             <li><strong>ID de publicidade</strong> — exibir anúncios relevantes e medir seu desempenho, através do Google AdMob.</li>
             <li><strong>Nível do áudio em reprodução</strong> — exclusivamente para fazer o papel de parede reagir visualmente (opacidade, cor, zoom da câmera etc) ao que está tocando no aparelho, quando você ativa esse recurso. Nunca é gravado, salvo ou enviado a lugar nenhum.</li>
             <li><strong>Prompt e imagem do recurso de IA</strong> — usados exclusivamente para gerar o modelo 3D que você pediu, através da Tripo AI. Não guardamos cópia do seu prompt, da imagem ou da sua chave de API nos nossos servidores (não temos nenhum) — eles passam do seu aparelho direto para a Tripo.</li>
+            <li><strong>Dados do AI Basic</strong> — usados exclusivamente para confirmar a assinatura e o país, contar a cota de gerações, gerar o modelo 3D que você pediu, tratar denúncias de conteúdo e proteger o serviço contra abuso. Não são usados para publicidade, não são vendidos e não são usados para treinar modelos de IA.</li>
           </ul>
-          <p data-i18n="s02-p1">Não usamos seus dados para perfis de comportamento próprios, não os vendemos e não os compartilhamos com ninguém além do necessário para exibir anúncios (seção 3).</p>
+          <p data-i18n="s02-p1">Não usamos seus dados para perfis de comportamento próprios, não os vendemos e não os compartilhamos com ninguém além do necessário para exibir anúncios e para operar a galeria, o compartilhamento de link e o AI Basic (seção 3).</p>
         </div>
       </section>
 
@@ -473,7 +477,9 @@
           <ul data-i18n="s03-list4">
             <li><a href="https://www.tripo3d.ai/privacy" target="_blank" rel="noopener">Política de Privacidade da Tripo AI</a></li>
           </ul>
-          <div class="note" data-i18n="s03-note">Fora do recurso opcional de geração 3D por IA (que só entra em ação se você colar sua própria chave da Tripo AI), o app não trabalha com nenhum outro SDK ou serviço de terceiros além do Google Mobile Ads (anúncios) e do Supabase (galeria de wallpapers e compartilhamento de link). O site, além do Supabase, usa o Cloudflare Turnstile só no formulário de envio de wallpapers. Nenhum dado de localização é enviado a redes de anúncios, ao Supabase, à Tripo AI ou ao Cloudflare.</div>
+          <p data-i18n="s03-p6">Se você assinar o <strong>AI Basic</strong>, a compra é feita e cobrada pelo <strong>Google Play</strong> (Google Play Billing), conforme a política do Google. O nosso servidor consulta o Google para confirmar o estado da assinatura e o país da conta; não recebemos dados de pagamento.</p>
+          <p data-i18n="s03-p7">A geração do AI Basic tem duas partes. No <strong>nosso próprio computador (no Brasil)</strong> ficam a conversão do texto em imagem, o filtro de conteúdo e a remoção do fundo da imagem. A etapa 3D roda na plataforma de computação em nuvem <strong>Modal Labs (Estados Unidos)</strong>, que recebe apenas a imagem já sem fundo — sem o seu texto, sem identificador da instalação e sem o país — e atua como nosso operador de dados, sob um acordo de tratamento de dados (<a href="https://modal.com/legal/dpa" target="_blank" rel="noopener">DPA da Modal</a>). Seu texto e sua imagem não são enviados a nenhuma outra API de IA de terceiros. A fila e os arquivos passam pelo Supabase, conforme a política do Supabase acima, e são apagados em 7 dias (seção 12).</p>
+          <div class="note" data-i18n="s03-note">Fora do recurso opcional de geração 3D por IA (que só entra em ação se você colar sua própria chave da Tripo AI), o app não trabalha com nenhum outro SDK ou serviço de terceiros além do Google Mobile Ads (anúncios), do Supabase (galeria de wallpapers, compartilhamento de link e fila do AI Basic), do Google Play (assinatura) e da Modal Labs (geração 3D do AI Basic). O site, além do Supabase, usa o Cloudflare Turnstile só no formulário de envio de wallpapers. Nenhum dado de localização é enviado a redes de anúncios, ao Supabase, à Tripo AI ou ao Cloudflare.</div>
         </div>
       </section>
 
@@ -496,11 +502,11 @@
                 </tr>
                 <tr>
                   <td class="perm-name">INTERNET</td>
-                  <td>Carregar anúncios e consultar dados de clima (se ativado).</td>
+                  <td>Carregar anúncios, a galeria, consultar dados de clima (se ativado) e usar o AI Basic (se você assinar).</td>
                   <td>Sim</td>
                 </tr>
                 <tr>
-                  <td class="perm-name">ACCESS_COARSE_LOCATION<br />ACCESS_FINE_LOCATION</td>
+                  <td class="perm-name">ACCESS_COARSE_LOCATION</td>
                   <td>Só usadas pela automação de clima, e só se você ativá-la.</td>
                   <td>Não</td>
                 </tr>
@@ -517,6 +523,11 @@
                 <tr>
                   <td class="perm-name">POST_NOTIFICATIONS</td>
                   <td>Mostrar a notificação fixa obrigatória enquanto "Responsivo a áudio" está ativo (exigência do Android para esse tipo de serviço).</td>
+                  <td>Não</td>
+                </tr>
+                <tr>
+                  <td class="perm-name">com.android.vending.BILLING</td>
+                  <td>Permitir a compra da assinatura do AI Basic pelo Google Play. Só usada se você assinar.</td>
                   <td>Não</td>
                 </tr>
               </tbody>
@@ -553,6 +564,7 @@
           <p data-i18n="s06-p1">Os modelos 3D, imagens, vídeos e configurações que você importa ou cria ficam salvos <strong>localmente no seu dispositivo</strong> — não existe conta na nuvem nem servidor nosso guardando o conteúdo das suas cenas próprias. Ao desinstalar o app, esses dados são apagados junto com ele.</p>
           <p data-i18n="s06-p2">Uma exceção é o catálogo da Galeria de Wallpapers (modelos prontos oferecidos por nós, não o conteúdo que você cria), que é hospedado no Supabase e baixado sob demanda — ver seção 3.</p>
           <p data-i18n="s06-p2b">A outra exceção é o recurso <strong>Compartilhar → Link para instalar o wallpaper</strong>: quando você escolhe ativamente essa opção, o wallpaper que você está editando é enviado ao Supabase para gerar o link e fica lá, publicamente acessível a quem tiver o link, por até 24 horas — ver seção 3. Fora desses dois casos (galeria e compartilhamento por link), suas cenas continuam só no seu aparelho.</p>
+          <p data-i18n="s06-p2c">A terceira exceção é o <strong>AI Basic</strong>: o texto, a imagem e o modelo 3D de cada geração ficam no Supabase por até 7 dias, acessíveis a você pelo aplicativo (e a nós, só para tratar denúncias e problemas do serviço) — ver seção 12.</p>
           <p data-i18n="s06-p3">Toda a comunicação de rede do app é feita por HTTPS (tráfego não criptografado é bloqueado por padrão em builds de produção).</p>
         </div>
       </section>
@@ -568,6 +580,8 @@
             <li>Desativar o "Responsivo a áudio" e/ou revogar a permissão RECORD_AUDIO a qualquer momento, sem perder o restante das funções do app.</li>
             <li>Limitar ou desativar a personalização de anúncios nas configurações do Android/Google.</li>
             <li>Apagar todos os dados locais do app desinstalando-o.</li>
+            <li>Cancelar a assinatura do AI Basic a qualquer momento no Google Play (ou pelo botão “Gerenciar assinatura” no aplicativo).</li>
+            <li>Denunciar um modelo gerado pelo botão “Denunciar este modelo” e pedir a exclusão antecipada dos seus dados do AI Basic pelo e-mail de contato (seção 10); caso contrário, eles são apagados automaticamente em 7 dias.</li>
             <li>Solicitar esclarecimentos sobre esta política pelo e-mail de contato (seção 10).</li>
           </ul>
         </div>
@@ -579,7 +593,7 @@
           <h2 data-i18n="s08-h2">Crianças</h2>
         </div>
         <div class="clause-body">
-          <p data-i18n="s08-p1">O LiveMaker não é direcionado a menores de 13 anos e não coleta intencionalmente dados de crianças. Se você acredita que uma criança nos forneceu dados sem o devido consentimento, entre em contato para que possamos remover essas informações.</p>
+          <p data-i18n="s08-p1">O LiveMaker não é direcionado a menores de 13 anos e não coleta intencionalmente dados de crianças. Se você acredita que uma criança nos forneceu dados sem o devido consentimento, entre em contato para que possamos remover essas informações. A assinatura do AI Basic exige capacidade legal para contratar (em regra, 18 anos ou mais) ou autorização de um responsável legal, conforme os Termos de Uso.</p>
         </div>
       </section>
 
@@ -622,6 +636,46 @@
         </div>
       </section>
 
+      <section class="clause" id="ai-basic">
+        <div class="clause-head">
+          <span class="clause-num">12</span>
+          <h2 data-i18n="s12-h2">AI Basic (assinatura de geração 3D por IA)</h2>
+        </div>
+        <div class="clause-body">
+          <p data-i18n="s12-p1">O <strong>AI Basic</strong> é uma assinatura opcional, vendida pelo Google Play, que gera modelos 3D por inteligência artificial. Esta seção explica os dados dessa parte do aplicativo; as regras de uso estão nos <a href="https://www.dkryptlab.com.br/termos-de-uso-ia" target="_blank" rel="noopener">Termos de Uso</a>.</p>
+          <ul data-i18n="s12-list">
+            <li><strong>O que é guardado por pedido:</strong> um identificador anônimo da instalação (gerado no aparelho; não é o seu nome, o seu e-mail nem o ID de publicidade), o país da sua conta do Google Play, o texto do pedido, a imagem enviada (se houver), o modelo 3D gerado, as datas e a situação do pedido.</li>
+            <li><strong>Assinatura:</strong> o Google Play processa o pagamento. O nosso servidor recebe do Google um código de compra e o estado da assinatura (ativa, cancelada, vencida) e usa o país da conta para saber se o AI Basic pode ser usado ali. Não recebemos seu nome, e-mail nem dados de cartão.</li>
+            <li><strong>Onde roda:</strong> uma parte da geração acontece no nosso próprio computador (no Brasil): converter o texto em imagem, filtrar o conteúdo e remover o fundo da imagem. A etapa 3D roda na plataforma de computação em nuvem <strong>Modal Labs, nos Estados Unidos</strong>, que recebe <strong>apenas a imagem já sem fundo</strong> — sem o seu texto, sem identificador da instalação e sem o país — e atua como nosso operador de dados, sob um acordo de tratamento de dados (<a href="https://modal.com/legal/dpa" target="_blank" rel="noopener">DPA da Modal</a>). A imagem é enviada como parâmetro da chamada e fica só na memória durante a geração; nós não gravamos nada em armazenamento persistente da Modal. Seu texto e sua imagem não são enviados a nenhuma outra API de IA de terceiros. Os arquivos e a fila ficam no Supabase (seção 3).</li>
+            <li><strong>Conteúdo das imagens:</strong> se a imagem que você enviar mostrar uma pessoa (por exemplo, um rosto), esses dados são tratados para gerar o modelo, inclusive pela Modal. Envie só imagens que você tem o direito de enviar.</li>
+            <li><strong>Filtro de conteúdo:</strong> é automático e roda no nosso computador, antes de a imagem sair para a Modal.</li>
+            <li><strong>Retenção:</strong> o texto, a imagem e o modelo são <strong>apagados em 7 dias</strong> (na prática, até cerca de 7 dias e 6 horas). Depois fica apenas um registro sem conteúdo (identificador anônimo, país, datas e situação), usado para contar a cota do período de cobrança.</li>
+            <li><strong>Denúncias:</strong> se você denunciar um modelo, guardamos o motivo, o comentário opcional e o identificador da geração por <strong>90 dias</strong>, sem copiar o conteúdo. Se o conteúdo ainda existir (até 7 dias), nós o vemos para analisar a denúncia.</li>
+            <li><strong>Acesso:</strong> o conteúdo fica acessível a você pelo aplicativo (por links temporários) e a nós apenas para tratar denúncias e problemas do serviço. Não vendemos esses dados, não os usamos para publicidade nem para treinar modelos de IA.</li>
+          </ul>
+          <p data-i18n="s12-p2">Você pode pedir a exclusão antecipada dos dados do AI Basic pelo e-mail de contato (seção 10).</p>
+          <div class="note" data-i18n="s12-note">No modo Tripo (sua própria chave), nada disso se aplica: os dados vão direto do aparelho para a Tripo AI (seção 3) e não passam por nós.</div>
+        </div>
+      </section>
+
+      <section class="clause" id="ue-uk-coreia">
+        <div class="clause-head">
+          <span class="clause-num">13</span>
+          <h2 data-i18n="s13-h2">Usuários da União Europeia, do Reino Unido e da Coreia do Sul</h2>
+        </div>
+        <div class="clause-body">
+          <p data-i18n="s13-p1">O AI Basic também é oferecido a pessoas na União Europeia, no Reino Unido e na Coreia do Sul. Para elas, esta seção resume como aplicamos as leis locais de proteção de dados (GDPR, UK GDPR e PIPA). O restante desta política continua valendo.</p>
+          <ul data-i18n="s13-list">
+            <li><strong>Controlador dos dados:</strong> Giovanni Paraizo Torturella (pessoa física), sob o nome Dkrypt LAB. Contato: <a href="mailto:contact@dkryptlab.com.br">contact@dkryptlab.com.br</a>.</li>
+            <li><strong>Bases legais (GDPR e UK GDPR):</strong> execução do contrato (gerar o modelo que você pediu e gerir a assinatura e a cota) e legítimo interesse (segurança, prevenção de abuso e moderação de conteúdo). Não tomamos decisões automatizadas com efeitos legais sobre você: o filtro de conteúdo só recusa pedidos impróprios, e você pode contestar a recusa pelo e-mail de contato.</li>
+            <li><strong>Seus direitos:</strong> acesso, retificação, apagamento, limitação do tratamento, portabilidade e oposição, e o direito de reclamar à autoridade de proteção de dados do seu país. Na Coreia do Sul, os direitos de acesso, correção, exclusão e suspensão do tratamento previstos na PIPA. Para exercê-los, escreva para o e-mail de contato (seção 10); respondemos em até 30 dias.</li>
+            <li><strong>Transferências internacionais:</strong> seus dados são tratados no Brasil (no nosso computador), nos Estados Unidos (Modal Labs, apenas a imagem sem fundo, durante a geração) e nos servidores do Supabase. A transferência para a Modal é coberta pelas cláusulas contratuais padrão da União Europeia e pelo adendo do Reino Unido que fazem parte do DPA dela. Para usuários da Coreia do Sul, esses mesmos destinos recebem os dados para a finalidade de gerar o modelo, pelo prazo de retenção da seção 12.</li>
+            <li><strong>Conteúdo gerado por IA:</strong> os modelos gerados trazem nos metadados a marcação de que foram gerados por inteligência artificial, e pedimos que você identifique esse conteúdo ao publicá-lo (Termos de Uso, seção 10).</li>
+          </ul>
+        </div>
+      </section>
+
+
     </div>
 
     <div class="foot">
@@ -644,7 +698,7 @@
     'fact-1-k': 'We collect',
     'fact-1-v': 'Approximate location, advertising ID, and IP address (when loading the gallery)',
     'fact-2-k': 'Shared with',
-    'fact-2-v': 'Google AdMob (ads) and Supabase (wallpaper gallery and share links)',
+    'fact-2-v': 'Google AdMob (ads), Supabase (gallery, share links, and the AI Basic queue), Google Play (subscription), and Modal Labs (AI Basic 3D generation)',
     'fact-3-k': 'Account required',
     'fact-3-v': 'No',
     'fact-4-k': 'Data sale',
@@ -652,17 +706,18 @@
     'fact-5-k': 'Device audio (optional feature)',
     'fact-5-v': 'Processed on-device only, never recorded or sent',
     'fact-6-k': 'AI 3D generation (optional feature)',
-    'fact-6-v': 'Only active if you paste your own Tripo AI key — in that case, your prompt and attached image are sent to it',
+    'fact-6-v': 'Optional. With your own Tripo AI key, your prompt and image go straight to Tripo. With AI Basic (subscription), the image (without background) goes to Modal Labs (USA) to generate the 3D; text, image, and model are deleted within 7 days',
     's00-h2': 'About this document',
     's00-p1': '<strong>LiveMaker</strong> (package <code>com.stlparallax.wallpaperapp</code>) is an Android app that lets you import 3D models (GLB, glTF, STL, 3MF) and create animated, interactive wallpapers. This policy applies to all versions of the app distributed on the Google Play Store.',
     's00-p2': 'By installing and using LiveMaker, you agree to the collection and use of information described below. If you do not agree, please do not use the app.',
+    's00-p3': 'The <a href="https://www.dkryptlab.com.br/termos-de-uso-ia" target="_blank" rel="noopener">Terms of Use</a> (including the rules of the AI Basic subscription) complement this policy.',
     's01-h2': 'Data we collect',
     's01-p1': 'LiveMaker was designed to work mostly offline. The data we collect is:',
-    's01-list': '<li><strong>Approximate or precise location</strong> — used only if you enable weather-based scene automation, to check the weather in your region and adjust the wallpaper automatically.</li><li><strong>Advertising ID</strong> — collected by the Google AdMob SDK to display and measure the editor’s banner ads.</li><li><strong>Technical ad diagnostic data</strong> — collected by Google (impressions, clicks, device information) under Google’s own policy, described in section 3.</li><li><strong>IP address</strong> — when you open the Wallpaper Gallery or use the <strong>Share → Link to install the wallpaper</strong> feature, the app exchanges data with a server (Supabase): downloading the list of available wallpapers, thumbnails, and full files in the first case, or uploading the wallpaper and a preview image to generate the link in the second (section 3). Like any network request, this transmits your IP address to the hosting provider — we do not use this data to identify or track you, it only exists as part of how the internet works (content delivery).</li><li><strong>Text prompt, attached image, and Tripo AI API key (optional "AI" feature)</strong> — only if you use the editor’s "AI" tab to generate a 3D model: your API key, the text describing the desired model, and the attached image (if any) are sent directly to the Tripo AI server — they never pass through our servers, we do not have any — to generate the model, which is then downloaded to your device. You need your own account and credits with Tripo; see section 3.</li><li><strong>Audio level currently playing on the device</strong> — only if you manually enable the "Audio responsive" automation (off by default). See section 5 for the technical details and guarantees around this feature.</li><li><strong>Problem or crash report (optional)</strong> — if you tap "Report a problem" (Contact section) or respond to the prompt shown after an unexpected app crash, we automatically pre-fill an email draft with the app version, Android version, device model, and, for crash reports, the technical error log (stack trace). This draft stays only in your own email app — nothing is sent unless you review it and tap "send". We do not use any third-party service (such as Crashlytics) to collect this automatically.</li>',
+    's01-list': '<li><strong>Approximate location</strong> — used only if you enable weather-based scene automation, to check the weather in your region and adjust the wallpaper automatically.</li><li><strong>Advertising ID</strong> — collected by the Google AdMob SDK to display and measure the editor’s banner ads.</li><li><strong>Technical ad diagnostic data</strong> — collected by Google (impressions, clicks, device information) under Google’s own policy, described in section 3.</li><li><strong>IP address</strong> — when you open the Wallpaper Gallery or use the <strong>Share → Link to install the wallpaper</strong> feature, the app exchanges data with a server (Supabase): downloading the list of available wallpapers, thumbnails, and full files in the first case, or uploading the wallpaper and a preview image to generate the link in the second (section 3). Like any network request, this transmits your IP address to the hosting provider — we do not use this data to identify or track you, it only exists as part of how the internet works (content delivery).</li><li><strong>Text prompt, attached image, and Tripo AI API key (optional "AI" feature)</strong> — only if you use the editor’s "AI" tab to generate a 3D model: your API key, the text describing the desired model, and the attached image (if any) are sent directly to the Tripo AI server — they never pass through our servers, we do not have any — to generate the model, which is then downloaded to your device. You need your own account and credits with Tripo; see section 3.</li><li><strong>AI Basic subscription (optional feature)</strong> — only if you subscribe: Google Play processes the payment and tells our server a purchase code, the subscription status, and the country of your Google Play account; we do not receive your name, email, or payment data. The app uses an anonymous identifier generated on the device (it is not the advertising ID) and a cryptographic key of the device to sign requests. See section 12.</li><li><strong>AI Basic text, image, and model</strong> — only if you generate a model with AI Basic: the text (in English), the attached image (if any), and the generated 3D model are kept on our server for up to 7 days, for generation and import. See section 12.</li><li><strong>Audio level currently playing on the device</strong> — only if you manually enable the "Audio responsive" automation (off by default). See section 5 for the technical details and guarantees around this feature.</li><li><strong>Problem or crash report (optional)</strong> — if you tap "Report a problem" (Contact section) or respond to the prompt shown after an unexpected app crash, we automatically pre-fill an email draft with the app version, Android version, device model, and, for crash reports, the technical error log (stack trace). This draft stays only in your own email app — nothing is sent unless you review it and tap "send". We do not use any third-party service (such as Crashlytics) to collect this automatically.</li>',
     's01-p2': 'We do not ask for a sign-up, email, name, or any personal identification to use the app. If you voluntarily contact us by email (section 10), we only process the address used in that exchange, solely to reply.',
     's02-h2': 'How we use the data',
-    's02-list': '<li><strong>Location</strong> — exclusively to look up the current weather in your region and apply the corresponding scene/skybox, when this automation is enabled in settings. It is never sent to us, associated with you, or used for advertising.</li><li><strong>Advertising ID</strong> — to display relevant ads and measure their performance, through Google AdMob.</li><li><strong>Playing audio level</strong> — exclusively to make the wallpaper react visually (opacity, color, camera zoom, etc.) to whatever is playing on the device, when you enable this feature. It is never recorded, saved, or sent anywhere.</li><li><strong>AI feature prompt and image</strong> — used exclusively to generate the 3D model you requested, through Tripo AI. We do not keep a copy of your prompt, image, or API key on our servers (we do not have any) — they go straight from your device to Tripo.</li>',
-    's02-p1': 'We do not use your data to build behavioral profiles of our own, we do not sell it, and we do not share it with anyone beyond what is necessary to display ads (section 3).',
+    's02-list': '<li><strong>Location</strong> — exclusively to look up the current weather in your region and apply the corresponding scene/skybox, when this automation is enabled in settings. It is never sent to us, associated with you, or used for advertising.</li><li><strong>Advertising ID</strong> — to display relevant ads and measure their performance, through Google AdMob.</li><li><strong>Playing audio level</strong> — exclusively to make the wallpaper react visually (opacity, color, camera zoom, etc.) to whatever is playing on the device, when you enable this feature. It is never recorded, saved, or sent anywhere.</li><li><strong>AI feature prompt and image</strong> — used exclusively to generate the 3D model you requested, through Tripo AI. We do not keep a copy of your prompt, image, or API key on our servers (we do not have any) — they go straight from your device to Tripo.</li><li><strong>AI Basic data</strong> — used exclusively to confirm the subscription and country, count the generation quota, generate the 3D model you asked for, handle content reports, and protect the service against abuse. It is not used for advertising, is not sold, and is not used to train AI models.</li>',
+    's02-p1': 'We do not use your data to build behavioral profiles of our own, we do not sell it, and we do not share it with anyone beyond what is necessary to display ads and to operate the gallery, link sharing, and AI Basic (section 3).',
     's03-h2': 'Third parties',
     's03-p1': 'LiveMaker uses <strong>Google Mobile Ads (AdMob)</strong> to display a banner ad in the editor. Google may collect advertising identifiers, ad interaction data, and device information, under:',
     's03-list1': '<li><a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google Privacy Policy</a></li><li><a href="https://policies.google.com/technologies/partner-sites" target="_blank" rel="noopener">How Google uses data from partner apps</a></li>',
@@ -676,10 +731,12 @@
     's03-p4d': 'If you install LiveMaker from that Play Store button, the Play Store itself passes a short technical parameter (the same random identifier from the link) to the app on first launch, letting it import the wallpaper automatically without needing to reopen the link after installing. This parameter does not identify you or get used for tracking — it only carries the shared wallpaper’s identifier.',
     's03-p5': 'If you use the optional AI 3D model generation feature (the editor’s "AI" tab), LiveMaker connects directly to <strong>Tripo AI</strong> using the API key you paste into the app yourself — it is your own account and your own credits with Tripo, not ours, and billing is handled by them, not us. When you use the feature, your API key, the text describing the desired model, and, if you attach one, an image, are sent to Tripo AI’s servers to generate the 3D model, which is then downloaded to your device. Your API key is stored only locally, on your device. More information:',
     's03-list4': '<li><a href="https://www.tripo3d.ai/privacy" target="_blank" rel="noopener">Tripo AI Privacy Policy</a></li>',
-    's03-note': 'Outside of the optional AI 3D generation feature (which only activates if you paste your own Tripo AI key), the app does not work with any other third-party SDK or service besides Google Mobile Ads (advertising) and Supabase (wallpaper gallery and link sharing). The website, besides Supabase, uses Cloudflare Turnstile only on the wallpaper submission form. No location data is ever sent to ad networks, Supabase, Tripo AI, or Cloudflare.',
+    's03-p6': 'If you subscribe to <strong>AI Basic</strong>, the purchase is made and billed by <strong>Google Play</strong> (Google Play Billing), under Google’s policy. Our server queries Google to confirm the subscription status and the account’s country; we do not receive payment data.',
+    's03-p7': 'AI Basic generation has two parts. On <strong>our own computer (in Brazil)</strong> are the conversion of text into an image, the content filter, and the removal of the image background. The 3D step runs on the <strong>Modal Labs</strong> cloud computing platform <strong>(United States)</strong>, which receives only the image already without background — without your text, without any installation identifier, and without the country — and acts as our data processor under a data processing agreement (<a href="https://modal.com/legal/dpa" target="_blank" rel="noopener">Modal DPA</a>). Your text and image are not sent to any other third-party AI API. The queue and the files pass through Supabase, under Supabase’s policy above, and are deleted within 7 days (section 12).',
+    's03-note': 'Outside of the optional AI 3D generation feature (which only activates if you paste your own Tripo AI key), the app does not work with any other third-party SDK or service besides Google Mobile Ads (advertising), Supabase (wallpaper gallery, link sharing, and the AI Basic queue), Google Play (subscription), and Modal Labs (AI Basic 3D generation). The website, besides Supabase, uses Cloudflare Turnstile only on the wallpaper submission form. No location data is ever sent to ad networks, Supabase, Tripo AI, or Cloudflare.',
     's04-h2': 'App permissions',
     's04-thead': '<tr><th>Permission</th><th>Reason</th><th>Required</th></tr>',
-    's04-tbody': '<tr><td class="perm-name">SET_WALLPAPER</td><td>Apply the created scene as an animated wallpaper.</td><td>Yes</td></tr><tr><td class="perm-name">INTERNET</td><td>Load ads and check weather data (if enabled).</td><td>Yes</td></tr><tr><td class="perm-name">ACCESS_COARSE_LOCATION<br />ACCESS_FINE_LOCATION</td><td>Only used by weather automation, and only if you enable it.</td><td>No</td></tr><tr><td class="perm-name">RECORD_AUDIO</td><td>Only used by "Audio responsive" automation, and only if you enable it. See section 5.</td><td>No</td></tr><tr><td class="perm-name">FOREGROUND_SERVICE<br />FOREGROUND_SERVICE_MEDIA_PROJECTION</td><td>Keep audio-level reading running while the wallpaper is active, with a persistent notification visible at all times. Only used if "Audio responsive" is enabled.</td><td>No</td></tr><tr><td class="perm-name">POST_NOTIFICATIONS</td><td>Show the mandatory persistent notification while "Audio responsive" is active (an Android requirement for this type of service).</td><td>No</td></tr>',
+    's04-tbody': '<tr><td class="perm-name">SET_WALLPAPER</td><td>Apply the created scene as an animated wallpaper.</td><td>Yes</td></tr><tr><td class="perm-name">INTERNET</td><td>Load ads, the gallery, check weather data (if enabled), and use AI Basic (if you subscribe).</td><td>Yes</td></tr><tr><td class="perm-name">ACCESS_COARSE_LOCATION</td><td>Only used by weather automation, and only if you enable it.</td><td>No</td></tr><tr><td class="perm-name">RECORD_AUDIO</td><td>Only used by "Audio responsive" automation, and only if you enable it. See section 5.</td><td>No</td></tr><tr><td class="perm-name">FOREGROUND_SERVICE<br />FOREGROUND_SERVICE_MEDIA_PROJECTION</td><td>Keep audio-level reading running while the wallpaper is active, with a persistent notification visible at all times. Only used if "Audio responsive" is enabled.</td><td>No</td></tr><tr><td class="perm-name">POST_NOTIFICATIONS</td><td>Show the mandatory persistent notification while "Audio responsive" is active (an Android requirement for this type of service).</td><td>No</td></tr><tr><td class="perm-name">com.android.vending.BILLING</td><td>Allow purchasing the AI Basic subscription through Google Play. Only used if you subscribe.</td><td>No</td></tr>',
     's04-p1': 'You can deny or revoke any of these permissions at any time in <em>Android Settings → Apps → LiveMaker → Permissions</em>, without losing access to the rest of the app — only the corresponding automation (weather or audio) will become unavailable.',
     's05-h2': 'Audio responsive',
     's05-p1': 'LiveMaker has an optional feature called <strong>"Audio responsive"</strong>, which makes the wallpaper react visually (opacity, color, hue shift, camera zoom, filters) to whatever is playing on the device — music, video, any audio. This feature is <strong>off by default</strong>: it only works if you go to <em>Automation → Audio responsive</em> and enable it manually.',
@@ -691,11 +748,12 @@
     's06-p1': 'The 3D models, images, videos, and settings you import or create are stored <strong>locally on your device</strong> — there is no cloud account or server of ours storing the content of your own scenes. When you uninstall the app, this data is deleted along with it.',
     's06-p2': 'One exception is the Wallpaper Gallery catalog (ready-made models we offer, not content you create), which is hosted on Supabase and downloaded on demand — see section 3.',
     's06-p2b': 'The other exception is the <strong>Share → Link to install the wallpaper</strong> feature: when you actively choose that option, the wallpaper you are editing is uploaded to Supabase to generate the link and stays there, publicly reachable by anyone with the link, for up to 24 hours — see section 3. Outside of these two cases (gallery and link sharing), your scenes stay only on your device.',
+    's06-p2c': 'The third exception is <strong>AI Basic</strong>: the text, image, and 3D model of each generation stay on Supabase for up to 7 days, accessible to you through the app (and to us only to handle reports and service problems) — see section 12.',
     's06-p3': 'All of the app’s network communication is done over HTTPS (unencrypted traffic is blocked by default in production builds).',
     's07-h2': 'Your rights and controls',
-    's07-list': '<li>Revoke the location permission at any time, without losing the rest of the app’s functions.</li><li>Disable "Audio responsive" and/or revoke the RECORD_AUDIO permission at any time, without losing the rest of the app’s functions.</li><li>Limit or disable ad personalization in your Android/Google settings.</li><li>Delete all of the app’s local data by uninstalling it.</li><li>Request clarification about this policy via the contact email (section 10).</li>',
+    's07-list': '<li>Revoke the location permission at any time, without losing the rest of the app’s functions.</li><li>Disable "Audio responsive" and/or revoke the RECORD_AUDIO permission at any time, without losing the rest of the app’s functions.</li><li>Limit or disable ad personalization in your Android/Google settings.</li><li>Delete all of the app’s local data by uninstalling it.</li><li>Cancel the AI Basic subscription at any time in Google Play (or with the “Manage subscription” button in the app).</li><li>Report a generated model with the “Report this model” button and ask for early deletion of your AI Basic data by the contact email (section 10); otherwise it is deleted automatically within 7 days.</li><li>Request clarification about this policy via the contact email (section 10).</li>',
     's08-h2': 'Children',
-    's08-p1': 'LiveMaker is not directed at children under 13 and does not knowingly collect data from children. If you believe a child has provided us with data without proper consent, please contact us so we can remove that information.',
+    's08-p1': 'LiveMaker is not directed at children under 13 and does not knowingly collect data from children. If you believe a child has provided us with data without proper consent, please contact us so we can remove that information. The AI Basic subscription requires legal capacity to enter into contracts (generally 18 or older) or a legal guardian’s authorization, as stated in the Terms of Use.',
     's09-h2': 'Changes to this policy',
     's09-p1': 'We may update this policy as the app changes. The date at the top of the page ("EFFECTIVE") always reflects the most recent version. Material changes will be reflected on this same page.',
     's10-h2': 'Contact',
@@ -705,7 +763,15 @@
     's11-p1': 'The site <a href="https://www.dkryptlab.com.br/submit-wallpapers" target="_blank" rel="noopener">dkryptlab.com.br/submit-wallpapers</a> lets anyone submit a wallpaper package (exported from the LiveMaker app itself) for possible inclusion in the app\'s Gallery. By using this form, we collect:',
     's11-list': '<li><strong>Title, category, the license you choose, and the credit text</strong> that you write in the form.</li><li><strong>Your email</strong> — optional, used only if we need to reach you about that specific submission.</li><li><strong>The submitted .zip file</strong>, which may contain 3D models, images, or other content you created or have the right to share.</li>',
     's11-p2': 'Every submission goes through manual review before anything becomes public — nothing is published automatically. If approved, the title, category, license, credit text, and the wallpaper itself become publicly visible inside the app\'s Gallery. Your email is never published — it is used only to contact you about that submission, if needed.',
-    's11-p3': 'Submissions are stored privately (Supabase, see section 3) until reviewed; rejected or not-yet-reviewed submissions never become public. The form uses Cloudflare Turnstile to block automated (bot) submissions — see section 3. You can request removal of a wallpaper you submitted, or of the contact details tied to that submission, via the contact email (section 10).'
+    's11-p3': 'Submissions are stored privately (Supabase, see section 3) until reviewed; rejected or not-yet-reviewed submissions never become public. The form uses Cloudflare Turnstile to block automated (bot) submissions — see section 3. You can request removal of a wallpaper you submitted, or of the contact details tied to that submission, via the contact email (section 10).',
+    's12-h2': 'AI Basic (AI 3D generation subscription)',
+    's12-p1': '<strong>AI Basic</strong> is an optional subscription, sold through Google Play, that generates 3D models with artificial intelligence. This section explains the data of that part of the app; the rules of use are in the <a href="https://www.dkryptlab.com.br/termos-de-uso-ia" target="_blank" rel="noopener">Terms of Use</a>.',
+    's12-list': '<li><strong>What is stored per request:</strong> an anonymous installation identifier (generated on the device; it is not your name, your email, or the advertising ID), the country of your Google Play account, the request text, the image you sent (if any), the generated 3D model, and the request’s dates and status.</li><li><strong>Subscription:</strong> Google Play processes the payment. Our server receives from Google a purchase code and the subscription status (active, canceled, expired) and uses the account’s country to know whether AI Basic may be used there. We do not receive your name, email, or card data.</li><li><strong>Where it runs:</strong> part of the generation happens on our own computer (in Brazil): converting the text into an image, filtering the content, and removing the image background. The 3D step runs on the <strong>Modal Labs</strong> cloud computing platform <strong>in the United States</strong>, which receives <strong>only the image already without background</strong> — without your text, without any installation identifier, and without the country — and acts as our data processor under a data processing agreement (<a href="https://modal.com/legal/dpa" target="_blank" rel="noopener">Modal DPA</a>). The image is sent as a parameter of the call and stays only in memory during generation; we do not write anything to Modal’s persistent storage. Your text and image are not sent to any other third-party AI API. The files and the queue stay on Supabase (section 3).</li><li><strong>Image content:</strong> if the image you send shows a person (for example, a face), that data is processed to generate the model, including by Modal. Only send images you have the right to send.</li><li><strong>Content filter:</strong> it is automatic and runs on our computer, before the image leaves for Modal.</li><li><strong>Retention:</strong> the text, the image, and the model are <strong>deleted within 7 days</strong> (in practice, up to about 7 days and 6 hours). Afterwards only a record without content remains (anonymous identifier, country, dates, and status), used to count the billing period’s quota.</li><li><strong>Reports:</strong> if you report a model, we keep the reason, the optional comment, and the generation identifier for <strong>90 days</strong>, without copying the content. If the content still exists (up to 7 days), we view it to review the report.</li><li><strong>Access:</strong> the content is accessible to you through the app (via temporary links) and to us only to handle reports and service problems. We do not sell this data, and we do not use it for advertising or to train AI models.</li>',
+    's12-p2': 'You can ask for early deletion of your AI Basic data through the contact email (section 10).',
+    's12-note': 'In Tripo mode (your own key), none of this applies: the data goes straight from the device to Tripo AI (section 3) and does not pass through us.',
+    's13-h2': 'Users in the European Union, the United Kingdom, and South Korea',
+    's13-p1': 'AI Basic is also offered to people in the European Union, the United Kingdom, and South Korea. For them, this section summarizes how we apply local data protection laws (GDPR, UK GDPR, and PIPA). The rest of this policy still applies.',
+    's13-list': '<li><strong>Data controller:</strong> Giovanni Paraizo Torturella (individual), under the name Dkrypt LAB. Contact: <a href="mailto:contact@dkryptlab.com.br">contact@dkryptlab.com.br</a>.</li><li><strong>Legal bases (GDPR and UK GDPR):</strong> performance of the contract (generating the model you asked for and managing the subscription and quota) and legitimate interest (security, abuse prevention, and content moderation). We do not make automated decisions with legal effects on you: the content filter only refuses inappropriate requests, and you can contest a refusal through the contact email.</li><li><strong>Your rights:</strong> access, rectification, erasure, restriction of processing, portability, and objection, and the right to complain to the data protection authority of your country. In South Korea, the rights of access, correction, deletion, and suspension of processing under the PIPA. To exercise them, write to the contact email (section 10); we reply within 30 days.</li><li><strong>International transfers:</strong> your data is processed in Brazil (on our computer), in the United States (Modal Labs, only the image without background, during generation), and on Supabase’s servers. The transfer to Modal is covered by the EU standard contractual clauses and the UK addendum that are part of its DPA. For users in South Korea, those same destinations receive the data for the purpose of generating the model, for the retention period in section 12.</li><li><strong>AI-generated content:</strong> the generated models carry, in their metadata, a mark saying they were generated by artificial intelligence, and we ask you to identify that content when you publish it (Terms of Use, section 10).</li>',
   };
 
   var PT = {};
